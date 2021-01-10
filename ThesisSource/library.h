@@ -1,0 +1,6 @@
+#ifndef THESISSOURCE_LIBRARY_H
+#define THESISSOURCE_LIBRARY_H
+
+void hello();
+
+#endif //THESISSOURCE_LIBRARY_H

@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.17)
+project(ThesisTestSource)
+
+set(CMAKE_CXX_STANDARD 20)
+
+add_executable(ThesisTestSource main.cpp BaseClasses/DistanceOracle.hpp ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp HelperTypes/Matrix.hpp ApproximationDistanceOracle/ChechikGeneralADO.hpp)
