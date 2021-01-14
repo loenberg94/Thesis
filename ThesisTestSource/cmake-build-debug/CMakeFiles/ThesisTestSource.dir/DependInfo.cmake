@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/loenberg/Thesis/ThesisTestSource/main.cpp" "/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/CMakeFiles/ThesisTestSource.dir/main.cpp.o"
+  "/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/PrimeGenerator.cpp" "/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/CMakeFiles/ThesisTestSource.dir/HelperTypes/PrimeGenerator.cpp.o"
+  "/home/loenberg/Thesis/Thesis/ThesisTestSource/main.cpp" "/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/CMakeFiles/ThesisTestSource.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

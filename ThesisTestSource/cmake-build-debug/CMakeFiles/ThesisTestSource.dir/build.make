@@ -54,19 +54,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/137/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/138/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/137/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/138/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/loenberg/Thesis/ThesisTestSource
+CMAKE_SOURCE_DIR = /home/loenberg/Thesis/Thesis/ThesisTestSource
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/loenberg/Thesis/ThesisTestSource/cmake-build-debug
+CMAKE_BINARY_DIR = /home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ThesisTestSource.dir/depend.make
@@ -79,28 +79,43 @@ include CMakeFiles/ThesisTestSource.dir/flags.make
 
 CMakeFiles/ThesisTestSource.dir/main.cpp.o: CMakeFiles/ThesisTestSource.dir/flags.make
 CMakeFiles/ThesisTestSource.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ThesisTestSource.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ThesisTestSource.dir/main.cpp.o -c /home/loenberg/Thesis/ThesisTestSource/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ThesisTestSource.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ThesisTestSource.dir/main.cpp.o -c /home/loenberg/Thesis/Thesis/ThesisTestSource/main.cpp
 
 CMakeFiles/ThesisTestSource.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ThesisTestSource.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/loenberg/Thesis/ThesisTestSource/main.cpp > CMakeFiles/ThesisTestSource.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/loenberg/Thesis/Thesis/ThesisTestSource/main.cpp > CMakeFiles/ThesisTestSource.dir/main.cpp.i
 
 CMakeFiles/ThesisTestSource.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ThesisTestSource.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/loenberg/Thesis/ThesisTestSource/main.cpp -o CMakeFiles/ThesisTestSource.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/loenberg/Thesis/Thesis/ThesisTestSource/main.cpp -o CMakeFiles/ThesisTestSource.dir/main.cpp.s
+
+CMakeFiles/ThesisTestSource.dir/HelperTypes/PrimeGenerator.cpp.o: CMakeFiles/ThesisTestSource.dir/flags.make
+CMakeFiles/ThesisTestSource.dir/HelperTypes/PrimeGenerator.cpp.o: ../HelperTypes/PrimeGenerator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ThesisTestSource.dir/HelperTypes/PrimeGenerator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ThesisTestSource.dir/HelperTypes/PrimeGenerator.cpp.o -c /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/PrimeGenerator.cpp
+
+CMakeFiles/ThesisTestSource.dir/HelperTypes/PrimeGenerator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ThesisTestSource.dir/HelperTypes/PrimeGenerator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/PrimeGenerator.cpp > CMakeFiles/ThesisTestSource.dir/HelperTypes/PrimeGenerator.cpp.i
+
+CMakeFiles/ThesisTestSource.dir/HelperTypes/PrimeGenerator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ThesisTestSource.dir/HelperTypes/PrimeGenerator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/PrimeGenerator.cpp -o CMakeFiles/ThesisTestSource.dir/HelperTypes/PrimeGenerator.cpp.s
 
 # Object files for target ThesisTestSource
 ThesisTestSource_OBJECTS = \
-"CMakeFiles/ThesisTestSource.dir/main.cpp.o"
+"CMakeFiles/ThesisTestSource.dir/main.cpp.o" \
+"CMakeFiles/ThesisTestSource.dir/HelperTypes/PrimeGenerator.cpp.o"
 
 # External object files for target ThesisTestSource
 ThesisTestSource_EXTERNAL_OBJECTS =
 
 ThesisTestSource: CMakeFiles/ThesisTestSource.dir/main.cpp.o
+ThesisTestSource: CMakeFiles/ThesisTestSource.dir/HelperTypes/PrimeGenerator.cpp.o
 ThesisTestSource: CMakeFiles/ThesisTestSource.dir/build.make
 ThesisTestSource: CMakeFiles/ThesisTestSource.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ThesisTestSource"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ThesisTestSource"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ThesisTestSource.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -113,6 +128,6 @@ CMakeFiles/ThesisTestSource.dir/clean:
 .PHONY : CMakeFiles/ThesisTestSource.dir/clean
 
 CMakeFiles/ThesisTestSource.dir/depend:
-	cd /home/loenberg/Thesis/ThesisTestSource/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/loenberg/Thesis/ThesisTestSource /home/loenberg/Thesis/ThesisTestSource /home/loenberg/Thesis/ThesisTestSource/cmake-build-debug /home/loenberg/Thesis/ThesisTestSource/cmake-build-debug /home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/CMakeFiles/ThesisTestSource.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/loenberg/Thesis/Thesis/ThesisTestSource /home/loenberg/Thesis/Thesis/ThesisTestSource /home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug /home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug /home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/CMakeFiles/ThesisTestSource.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ThesisTestSource.dir/depend
 

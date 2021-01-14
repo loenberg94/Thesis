@@ -9,6 +9,8 @@
 
 #include "../BaseClasses/DistanceOracle.hpp"
 #include "../HelperTypes/Matrix.hpp"
+#include "../HelperTypes/Edge.hpp"
+#include "../HelperTypes/HashTable2Level.hpp"
 #include <cassert>
 #include <set>
 #include <iterator>
@@ -23,11 +25,14 @@ using namespace std;
 
 class ThorupZwickGeneralADO: public DistanceOracle {
 public:
-    ThorupZwickGeneralADO(int k, int v_size, Matrix<double> distances) {
-        p = Matrix<int> (k, v_size, [](int i, int j) {return 0;});
-        d = Matrix<double> (k + 1, v_size, [](int i, int j) {return 0.0;});
-        bunches = new std::unordered_map<int, double>[v_size];
-        prepro(k, v_size, distances);
+    ThorupZwickGeneralADO(int k, int v_size, Matrix<double> distances)
+    :ThorupZwickGeneralADO(k, v_size){
+        prepro_metric(k, v_size, distances);
+    }
+
+    ThorupZwickGeneralADO(int k, int v_size, Edge *edges)
+    :ThorupZwickGeneralADO(k, v_size){
+        prepro_graph(k, v_size, edges);
     }
 
     double GetDistance(int u, int v) override{
@@ -39,21 +44,30 @@ public:
             u = tmp;
             w = p(i, u);
         }
-        return d(i, u) + bunches[v][w];
+        return d(w, u) + bunches[v][w];
     }
 
     int GetSize() override {
         return size;
     }
 
-private:
+protected:
     std::unordered_map<int, double> *bunches;
     Matrix<int> p;
     Matrix<double> d;
+    int k_;
 
+private:
     int size = 0;
 
-    void prepro(int k, int v_size, Matrix<double> distances){
+    ThorupZwickGeneralADO(int k, int v_size){
+        p = Matrix<int> (k, v_size, [](int i, int j) {return 0;});
+        d = Matrix<double> (k + 1, v_size, [](int i, int j) {return 0.0;});
+        bunches = new std::unordered_map<int, double>[v_size];
+        k_ = k;
+    }
+
+    void prepro_metric(int k, int v_size, Matrix<double> distances){
         std::random_device rd;
         auto gen = std::mt19937 (rd());
         std::uniform_real_distribution<double> dis= std::uniform_real_distribution<double> (0,1);
@@ -107,6 +121,10 @@ private:
 
     }
 
+    void prepro_graph(int k, int v_size, Edge *edges){
+
+    }
+
     std::tuple<int, double> min_dist(int v, const std::unordered_set<int>& a_i, Matrix<double> distances){
         int pi = -1;
         double dist = MAXFLOAT;
@@ -118,17 +136,6 @@ private:
             }
         }
         return {pi, dist};
-    }
-
-
-
-    int* range(int start, int end){
-        int size = (end - start) + 1;
-        int r[size];
-        for (int i = 0; i < size; i++) {
-            r[i] = start + i;
-        }
-        return r;
     }
 };
 

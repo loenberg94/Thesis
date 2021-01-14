@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/loenberg/Thesis/ThesisTestSource/ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp
+/home/loenberg/Thesis/Thesis/ThesisTestSource/ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp
 ../BaseClasses/DistanceOracle.hpp
-/home/loenberg/Thesis/ThesisTestSource/BaseClasses/DistanceOracle.hpp
+/home/loenberg/Thesis/Thesis/ThesisTestSource/BaseClasses/DistanceOracle.hpp
 ../HelperTypes/Matrix.hpp
-/home/loenberg/Thesis/ThesisTestSource/HelperTypes/Matrix.hpp
+/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Matrix.hpp
 cassert
 -
 set
@@ -30,15 +30,23 @@ unordered_map
 unordered_set
 -
 
-/home/loenberg/Thesis/ThesisTestSource/BaseClasses/DistanceOracle.hpp
+/home/loenberg/Thesis/Thesis/ThesisTestSource/ApproximationDistanceOracle/WulffNilsenGeneralADO.hpp
+ThorupZwickGeneralADO.hpp
+/home/loenberg/Thesis/Thesis/ThesisTestSource/ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp
+cmath
+-
 
-/home/loenberg/Thesis/ThesisTestSource/HelperTypes/Matrix.hpp
+/home/loenberg/Thesis/Thesis/ThesisTestSource/BaseClasses/DistanceOracle.hpp
 
-/home/loenberg/Thesis/ThesisTestSource/main.cpp
+/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Matrix.hpp
+
+/home/loenberg/Thesis/Thesis/ThesisTestSource/main.cpp
 iostream
 -
 unordered_set
 -
 ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp
-/home/loenberg/Thesis/ThesisTestSource/ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp
+/home/loenberg/Thesis/Thesis/ThesisTestSource/ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp
+ApproximationDistanceOracle/WulffNilsenGeneralADO.hpp
+/home/loenberg/Thesis/Thesis/ThesisTestSource/ApproximationDistanceOracle/WulffNilsenGeneralADO.hpp
 

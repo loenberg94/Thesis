@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/ThesisTestSource.dir/HelperTypes/PrimeGenerator.cpp.o"
   "CMakeFiles/ThesisTestSource.dir/main.cpp.o"
   "ThesisTestSource"
   "ThesisTestSource.pdb"

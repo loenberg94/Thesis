@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug"/>
+				<Option working_dir="/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug"/>
+				<Option working_dir="/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug"/>
+				<Option working_dir="/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="ThesisTestSource">
-				<Option output="/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/ThesisTestSource" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug"/>
+				<Option output="/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/ThesisTestSource" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -53,15 +53,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 ThesisTestSource"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 ThesisTestSource"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="ThesisTestSource/fast">
-				<Option output="/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/ThesisTestSource" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug"/>
+				<Option output="/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/ThesisTestSource" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -75,29 +75,44 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 ThesisTestSource/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 ThesisTestSource/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/loenberg/Thesis/ThesisTestSource/ApproximationDistanceOracle/ChechikGeneralADO.hpp">
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/ApproximationDistanceOracle/ChechikGeneralADO.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/ThesisTestSource/ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp">
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/ThesisTestSource/BaseClasses/DistanceOracle.hpp">
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/ApproximationDistanceOracle/WulffNilsenGeneralADO.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/ThesisTestSource/HelperTypes/Matrix.hpp">
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/BaseClasses/DistanceOracle.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/ThesisTestSource/main.cpp">
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Edge.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/ThesisTestSource/CMakeLists.txt">
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/HashTable2Level.hpp">
+			<Option target="ThesisTestSource"/>
+		</Unit>
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Matrix.hpp">
+			<Option target="ThesisTestSource"/>
+		</Unit>
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/PrimeGenerator.cpp">
+			<Option target="ThesisTestSource"/>
+		</Unit>
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/PrimeGenerator.hpp">
+			<Option target="ThesisTestSource"/>
+		</Unit>
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/main.cpp">
+			<Option target="ThesisTestSource"/>
+		</Unit>
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

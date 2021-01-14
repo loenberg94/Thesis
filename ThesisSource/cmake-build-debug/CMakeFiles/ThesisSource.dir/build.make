@@ -54,19 +54,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/137/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/138/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/137/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/138/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/loenberg/Thesis/ThesisSource
+CMAKE_SOURCE_DIR = /home/loenberg/Thesis/Thesis/ThesisSource
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/loenberg/Thesis/ThesisSource/cmake-build-debug
+CMAKE_BINARY_DIR = /home/loenberg/Thesis/Thesis/ThesisSource/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ThesisSource.dir/depend.make
@@ -79,16 +79,16 @@ include CMakeFiles/ThesisSource.dir/flags.make
 
 CMakeFiles/ThesisSource.dir/library.cpp.o: CMakeFiles/ThesisSource.dir/flags.make
 CMakeFiles/ThesisSource.dir/library.cpp.o: ../library.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/loenberg/Thesis/ThesisSource/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ThesisSource.dir/library.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ThesisSource.dir/library.cpp.o -c /home/loenberg/Thesis/ThesisSource/library.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/loenberg/Thesis/Thesis/ThesisSource/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ThesisSource.dir/library.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ThesisSource.dir/library.cpp.o -c /home/loenberg/Thesis/Thesis/ThesisSource/library.cpp
 
 CMakeFiles/ThesisSource.dir/library.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ThesisSource.dir/library.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/loenberg/Thesis/ThesisSource/library.cpp > CMakeFiles/ThesisSource.dir/library.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/loenberg/Thesis/Thesis/ThesisSource/library.cpp > CMakeFiles/ThesisSource.dir/library.cpp.i
 
 CMakeFiles/ThesisSource.dir/library.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ThesisSource.dir/library.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/loenberg/Thesis/ThesisSource/library.cpp -o CMakeFiles/ThesisSource.dir/library.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/loenberg/Thesis/Thesis/ThesisSource/library.cpp -o CMakeFiles/ThesisSource.dir/library.cpp.s
 
 # Object files for target ThesisSource
 ThesisSource_OBJECTS = \
@@ -100,7 +100,7 @@ ThesisSource_EXTERNAL_OBJECTS =
 libThesisSource.a: CMakeFiles/ThesisSource.dir/library.cpp.o
 libThesisSource.a: CMakeFiles/ThesisSource.dir/build.make
 libThesisSource.a: CMakeFiles/ThesisSource.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/loenberg/Thesis/ThesisSource/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libThesisSource.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/loenberg/Thesis/Thesis/ThesisSource/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libThesisSource.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/ThesisSource.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ThesisSource.dir/link.txt --verbose=$(VERBOSE)
 
@@ -114,6 +114,6 @@ CMakeFiles/ThesisSource.dir/clean:
 .PHONY : CMakeFiles/ThesisSource.dir/clean
 
 CMakeFiles/ThesisSource.dir/depend:
-	cd /home/loenberg/Thesis/ThesisSource/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/loenberg/Thesis/ThesisSource /home/loenberg/Thesis/ThesisSource /home/loenberg/Thesis/ThesisSource/cmake-build-debug /home/loenberg/Thesis/ThesisSource/cmake-build-debug /home/loenberg/Thesis/ThesisSource/cmake-build-debug/CMakeFiles/ThesisSource.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/loenberg/Thesis/Thesis/ThesisSource/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/loenberg/Thesis/Thesis/ThesisSource /home/loenberg/Thesis/Thesis/ThesisSource /home/loenberg/Thesis/Thesis/ThesisSource/cmake-build-debug /home/loenberg/Thesis/Thesis/ThesisSource/cmake-build-debug /home/loenberg/Thesis/Thesis/ThesisSource/cmake-build-debug/CMakeFiles/ThesisSource.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ThesisSource.dir/depend
 

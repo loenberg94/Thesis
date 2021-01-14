@@ -3,4 +3,4 @@ project(ThesisTestSource)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(ThesisTestSource main.cpp BaseClasses/DistanceOracle.hpp ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp HelperTypes/Matrix.hpp ApproximationDistanceOracle/ChechikGeneralADO.hpp)
+add_executable(ThesisTestSource main.cpp BaseClasses/DistanceOracle.hpp ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp HelperTypes/Matrix.hpp ApproximationDistanceOracle/ChechikGeneralADO.hpp ApproximationDistanceOracle/WulffNilsenGeneralADO.hpp HelperTypes/Edge.hpp HelperTypes/HashTable2Level.hpp HelperTypes/PrimeGenerator.hpp HelperTypes/PrimeGenerator.cpp)
