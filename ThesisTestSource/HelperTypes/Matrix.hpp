@@ -5,10 +5,14 @@
 #ifndef THESISSOURCE_MATRIX_HPP
 #define THESISSOURCE_MATRIX_HPP
 
+#include <vector>
+
+using namespace std;
+
 template <typename T>
 class Matrix{
 private:
-    T *data;
+    vector<T> data;
     int mRows;
     int mCols;
 
@@ -19,7 +23,7 @@ public:
     }
 
     Matrix(int n, T (*constructor)(int,int)){
-        data = new T[n * n];
+        data = vector<T>(n * n);
         mRows = n;
         mCols = n;
         for (int i = 0; i < n * n; i++) {

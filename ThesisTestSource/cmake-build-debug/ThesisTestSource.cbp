@@ -94,6 +94,9 @@
 		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/BaseClasses/DistanceOracle.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/AdjecencyMatrix.hpp">
+			<Option target="ThesisTestSource"/>
+		</Unit>
 		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Edge.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>

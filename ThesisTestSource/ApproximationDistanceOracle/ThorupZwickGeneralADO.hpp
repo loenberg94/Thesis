@@ -11,6 +11,7 @@
 #include "../HelperTypes/Matrix.hpp"
 #include "../HelperTypes/Edge.hpp"
 #include "../HelperTypes/HashTable2Level.hpp"
+#include "../HelperTypes/AdjecencyMatrix.hpp"
 #include <cassert>
 #include <set>
 #include <iterator>
@@ -30,7 +31,7 @@ public:
         prepro_metric(k, v_size, distances);
     }
 
-    ThorupZwickGeneralADO(int k, int v_size, Edge *edges)
+    ThorupZwickGeneralADO(int k, int v_size, vector<Edge> edges)
     :ThorupZwickGeneralADO(k, v_size){
         prepro_graph(k, v_size, edges);
     }
@@ -69,16 +70,15 @@ private:
 
     void prepro_metric(int k, int v_size, Matrix<double> distances){
         std::random_device rd;
-        auto gen = std::mt19937 (rd());
-        std::uniform_real_distribution<double> dis= std::uniform_real_distribution<double> (0,1);
+        std::mt19937 gen (rd());
+        std::uniform_real_distribution<double> dis (0,1);
 
         std::list<int> a_differences[k];
         std::unordered_set<int> A[k + 1];
 
         for (int i = 0; i < v_size; i++) {
-            A[0].insert(i + 1);
+            A[0].insert(i);
         }
-
 
         for (int i = 1; i < k; i++) {
             auto s = A[i - 1];
@@ -87,16 +87,19 @@ private:
                 if (prob <= std::pow((double)v_size, -(1.0/(double)k))){
                     A[i].insert(elem);
                 }
+                else{
+                    a_differences[i - 1].push_back(elem);
+                }
             }
         }
 
-        for (int i = 0; i < k; i++) {
+        /**for (int i = 0; i < k; i++) {
             for (int elem: A[i]) {
                 if(!A[i + 1].contains(elem)){
                     a_differences[i].push_back(elem);
                 }
             }
-        }
+        } **/
 
         for (int v = 0; v < v_size; v++){
             for (int i = 0; i < k; i++) {
@@ -121,13 +124,39 @@ private:
 
     }
 
-    void prepro_graph(int k, int v_size, Edge *edges){
+    void prepro_graph(int k, int v_size, vector<Edge> edges){
+        AdjecencyMatrix adj(v_size, edges);
+        std::random_device rd;
+        std::mt19937 gen (rd());
+        std::uniform_real_distribution<double> dis (0,1);
+        std::list<int> a_differences[k];
+        std::unordered_set<int> A[k + 1];
+
+        for (int i = 0; i < v_size; i++) {
+            A[0].insert(i + 1);
+        }
+
+        for (int i = 1; i < k; i++) {
+            auto s = A[i - 1];
+            for (int elem: s){
+                auto prob = dis(gen);
+                if (prob <= std::pow((double)v_size, -(1.0/(double)k))){
+                    A[i].insert(elem);
+                }
+                else{
+                    a_differences[i - 1].push_back(elem);
+                }
+            }
+        }
+
+
+
 
     }
 
     std::tuple<int, double> min_dist(int v, const std::unordered_set<int>& a_i, Matrix<double> distances){
         int pi = -1;
-        double dist = MAXFLOAT;
+        double dist = INFINITY;
         for (int u: a_i){
             double tmp_dist = distances(v, u);
             if (tmp_dist < dist){

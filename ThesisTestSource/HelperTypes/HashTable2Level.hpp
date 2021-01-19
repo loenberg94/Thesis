@@ -9,18 +9,56 @@
 #include <cmath>
 #include <random>
 #include <vector>
+#include <tuple>
+#include <exception>
+#include <unordered_map>
 #include "PrimeGenerator.hpp"
+
+struct HashTableEntry{
+    int key;
+    double value;
+};
+
+struct SecondLevelTable{
+    long long int a, b;
+    vector<HashTableEntry> table;
+};
 
 class HashTable2Level{
 public:
-    HashTable2Level(int *elements, int size){
+    HashTable2Level(vector<HashTableEntry> elements, int size) :
+        mData(size),
+        mBinsSizes(size, 0)
+    {
         mSize = size;
-        mData = new int*[size];
-        abs = Matrix<long long int>(mSize, 2);
-        p = pick_p();
+        p = 1610612741;//pick_p();
         dis = std::uniform_int_distribution<long long int> (1,p);
         init_ab();
         prepro(elements);
+    }
+
+    ~HashTable2Level(){
+
+    }
+
+    bool contains(int key){
+        int si = hash(key, a, b, mSize);
+        if (mBinsSizes[si] == 0)
+            return false;
+        int mi = hash(key, mData[si].a, mData[si].b, mBinsSizes[si]);
+        auto entry = mData[si].table[mi];
+        return key == entry.key;
+    }
+
+    double& operator[](int key){
+        int si = hash(key, a, b, mSize);
+        if (mBinsSizes[si] == 0)
+            invalid_key(key);
+        int mi = hash(key, mData[si].a, mData[si].b, mBinsSizes[si]);
+        auto entry = mData[si].table[mi];
+        if (entry.key == key)
+            return entry.value;
+        invalid_key(key);
     }
 
 private:
@@ -31,39 +69,60 @@ private:
     unsigned long long int p;
     unsigned long long int a,b;
 
-    Matrix<long long int> abs;
-
-    int **mData;
+    vector<SecondLevelTable> mData;
+    vector<int> mBinsSizes;
     int mSize;
 
-    void prepro(int *elements){
-        int ns[mSize];
-        std::vector<int> elems[mSize];
+    void set_bin_sizes(vector<HashTableEntry> elements, vector<vector<HashTableEntry>> &binElements){
         for (int i = 0; i < mSize; i++) {
-            int index = hash(elements[i],a,b);
-            ns[index]++;
-            elems[index].push_back(elements[i]);
-        }
-        for (int i = 0; i < mSize; i++) {
-            if (ns[i] > 0){
-                int m = (int) pow(ns[i], 2.0);
-                mData[i] = new int[m];
-                std::fill_n(mData[i], m, -1);
-            }
-        }
-        for (int i = 0; i < mSize; i++) {
-            int si = hash(elements[i], a, b);
-            auto [a_, b_] = pick_ab();
-            int mi = hash(elements[i], a_, b_);
-            if (mData[si][mi] == -1)
-                mData[si][mi] = elements[i];
-            else
-                i--;
+            int index = hash(elements[i].key,a,b, mSize);
+            mBinsSizes[index]++;
+            binElements[index].push_back(elements[i]);
         }
     }
 
-    int hash(int x, int a, int b){
-        return ((a * x + b) % p) % mSize;
+    void prepro(vector<HashTableEntry> elements){
+        vector<vector<HashTableEntry>> binElements(mSize, vector<HashTableEntry>());
+        set_bin_sizes(elements, binElements);
+        for (int i = 0; i < mSize; i++) {
+            int m = (int) pow(mBinsSizes[i], 2.0);
+            mBinsSizes[i] = m;
+            auto [a_, b_] = pick_ab();
+            mData[i] = {a_, b_, vector<HashTableEntry>(m, {-1, -1})};
+        }
+
+        for (int i = 0; i < mSize; i++){
+            if (!binElements[i].empty()){
+                auto bin = binElements[i];
+                unordered_map<int, HashTableEntry> indeces;
+                bool success = true;
+                for (auto e: bin){
+                    int mi = hash(e.key, mData[i].a, mData[i].b, mBinsSizes[i]);
+                    if (indeces.contains(mi)){
+                        auto [a_, b_] = pick_ab();
+                        mData[i].a = a_;
+                        mData[i].b = b_;
+                        success = false;
+                        break;
+                    }
+                    else{
+                        indeces.insert({mi, e});
+                    }
+                }
+                if (success){
+                    for (auto [k, v]: indeces){
+                        mData[i].table[k] = v;
+                    }
+                }
+                else{
+                    i--;
+                }
+            }
+        }
+    }
+
+    int hash(int x, int a_, int b_, int size){
+        return ((a_ * x + b_) % p) % size;
     }
 
     void init_ab(){
@@ -79,6 +138,10 @@ private:
         return generate_prime_number(mSize);
     }
 
+    void invalid_key(int k){
+        throw std::invalid_argument("Invalid key: " + std::to_string(k));
+    }
 };
+
 
 #endif //THESISTESTSOURCE_HASHTABLE2LEVEL_HPP
