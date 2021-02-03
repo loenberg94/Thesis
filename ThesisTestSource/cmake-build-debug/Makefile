@@ -59,10 +59,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/138/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/139/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/138/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/139/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -79,7 +79,7 @@ CMAKE_BINARY_DIR = /home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-deb
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/snap/clion/138/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/139/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -90,7 +90,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/snap/clion/138/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/139/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -143,6 +143,60 @@ ThesisTestSource/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThesisTestSource.dir/build.make CMakeFiles/ThesisTestSource.dir/build
 .PHONY : ThesisTestSource/fast
 
+HelperTypes/Dijkstra.o: HelperTypes/Dijkstra.cpp.o
+
+.PHONY : HelperTypes/Dijkstra.o
+
+# target to build an object file
+HelperTypes/Dijkstra.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThesisTestSource.dir/build.make CMakeFiles/ThesisTestSource.dir/HelperTypes/Dijkstra.cpp.o
+.PHONY : HelperTypes/Dijkstra.cpp.o
+
+HelperTypes/Dijkstra.i: HelperTypes/Dijkstra.cpp.i
+
+.PHONY : HelperTypes/Dijkstra.i
+
+# target to preprocess a source file
+HelperTypes/Dijkstra.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThesisTestSource.dir/build.make CMakeFiles/ThesisTestSource.dir/HelperTypes/Dijkstra.cpp.i
+.PHONY : HelperTypes/Dijkstra.cpp.i
+
+HelperTypes/Dijkstra.s: HelperTypes/Dijkstra.cpp.s
+
+.PHONY : HelperTypes/Dijkstra.s
+
+# target to generate assembly for a file
+HelperTypes/Dijkstra.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThesisTestSource.dir/build.make CMakeFiles/ThesisTestSource.dir/HelperTypes/Dijkstra.cpp.s
+.PHONY : HelperTypes/Dijkstra.cpp.s
+
+HelperTypes/Logger.o: HelperTypes/Logger.cpp.o
+
+.PHONY : HelperTypes/Logger.o
+
+# target to build an object file
+HelperTypes/Logger.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThesisTestSource.dir/build.make CMakeFiles/ThesisTestSource.dir/HelperTypes/Logger.cpp.o
+.PHONY : HelperTypes/Logger.cpp.o
+
+HelperTypes/Logger.i: HelperTypes/Logger.cpp.i
+
+.PHONY : HelperTypes/Logger.i
+
+# target to preprocess a source file
+HelperTypes/Logger.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThesisTestSource.dir/build.make CMakeFiles/ThesisTestSource.dir/HelperTypes/Logger.cpp.i
+.PHONY : HelperTypes/Logger.cpp.i
+
+HelperTypes/Logger.s: HelperTypes/Logger.cpp.s
+
+.PHONY : HelperTypes/Logger.s
+
+# target to generate assembly for a file
+HelperTypes/Logger.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThesisTestSource.dir/build.make CMakeFiles/ThesisTestSource.dir/HelperTypes/Logger.cpp.s
+.PHONY : HelperTypes/Logger.cpp.s
+
 HelperTypes/PrimeGenerator.o: HelperTypes/PrimeGenerator.cpp.o
 
 .PHONY : HelperTypes/PrimeGenerator.o
@@ -169,6 +223,33 @@ HelperTypes/PrimeGenerator.s: HelperTypes/PrimeGenerator.cpp.s
 HelperTypes/PrimeGenerator.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThesisTestSource.dir/build.make CMakeFiles/ThesisTestSource.dir/HelperTypes/PrimeGenerator.cpp.s
 .PHONY : HelperTypes/PrimeGenerator.cpp.s
+
+HelperTypes/ThorupSingleSourceShortestPath.o: HelperTypes/ThorupSingleSourceShortestPath.cpp.o
+
+.PHONY : HelperTypes/ThorupSingleSourceShortestPath.o
+
+# target to build an object file
+HelperTypes/ThorupSingleSourceShortestPath.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThesisTestSource.dir/build.make CMakeFiles/ThesisTestSource.dir/HelperTypes/ThorupSingleSourceShortestPath.cpp.o
+.PHONY : HelperTypes/ThorupSingleSourceShortestPath.cpp.o
+
+HelperTypes/ThorupSingleSourceShortestPath.i: HelperTypes/ThorupSingleSourceShortestPath.cpp.i
+
+.PHONY : HelperTypes/ThorupSingleSourceShortestPath.i
+
+# target to preprocess a source file
+HelperTypes/ThorupSingleSourceShortestPath.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThesisTestSource.dir/build.make CMakeFiles/ThesisTestSource.dir/HelperTypes/ThorupSingleSourceShortestPath.cpp.i
+.PHONY : HelperTypes/ThorupSingleSourceShortestPath.cpp.i
+
+HelperTypes/ThorupSingleSourceShortestPath.s: HelperTypes/ThorupSingleSourceShortestPath.cpp.s
+
+.PHONY : HelperTypes/ThorupSingleSourceShortestPath.s
+
+# target to generate assembly for a file
+HelperTypes/ThorupSingleSourceShortestPath.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThesisTestSource.dir/build.make CMakeFiles/ThesisTestSource.dir/HelperTypes/ThorupSingleSourceShortestPath.cpp.s
+.PHONY : HelperTypes/ThorupSingleSourceShortestPath.cpp.s
 
 main.o: main.cpp.o
 
@@ -206,9 +287,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... ThesisTestSource"
+	@echo "... HelperTypes/Dijkstra.o"
+	@echo "... HelperTypes/Dijkstra.i"
+	@echo "... HelperTypes/Dijkstra.s"
+	@echo "... HelperTypes/Logger.o"
+	@echo "... HelperTypes/Logger.i"
+	@echo "... HelperTypes/Logger.s"
 	@echo "... HelperTypes/PrimeGenerator.o"
 	@echo "... HelperTypes/PrimeGenerator.i"
 	@echo "... HelperTypes/PrimeGenerator.s"
+	@echo "... HelperTypes/ThorupSingleSourceShortestPath.o"
+	@echo "... HelperTypes/ThorupSingleSourceShortestPath.i"
+	@echo "... HelperTypes/ThorupSingleSourceShortestPath.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

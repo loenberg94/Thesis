@@ -11,7 +11,7 @@ using namespace std;
 
 template <typename T>
 class Matrix{
-private:
+protected:
     vector<T> data;
     int mRows;
     int mCols;
@@ -59,6 +59,10 @@ public:
 
     [[nodiscard]] int GetCols() const{
         return mCols;
+    }
+
+    T get(int i, int j){
+        return this->operator()(i,j);
     }
 };
 

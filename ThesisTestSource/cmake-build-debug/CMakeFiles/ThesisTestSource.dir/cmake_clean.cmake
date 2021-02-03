@@ -1,5 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/ThesisTestSource.dir/HelperTypes/Dijkstra.cpp.o"
+  "CMakeFiles/ThesisTestSource.dir/HelperTypes/Logger.cpp.o"
   "CMakeFiles/ThesisTestSource.dir/HelperTypes/PrimeGenerator.cpp.o"
+  "CMakeFiles/ThesisTestSource.dir/HelperTypes/ThorupSingleSourceShortestPath.cpp.o"
   "CMakeFiles/ThesisTestSource.dir/main.cpp.o"
   "ThesisTestSource"
   "ThesisTestSource.pdb"

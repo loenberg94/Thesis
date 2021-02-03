@@ -37,7 +37,7 @@ public:
         prepro(elements);
     }
 
-    ~HashTable2Level(){
+    HashTable2Level(HashTable2Level *pLevel) {
 
     }
 

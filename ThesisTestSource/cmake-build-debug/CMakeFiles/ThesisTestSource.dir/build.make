@@ -54,10 +54,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/138/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/139/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/138/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/139/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -103,19 +103,64 @@ CMakeFiles/ThesisTestSource.dir/HelperTypes/PrimeGenerator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ThesisTestSource.dir/HelperTypes/PrimeGenerator.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/PrimeGenerator.cpp -o CMakeFiles/ThesisTestSource.dir/HelperTypes/PrimeGenerator.cpp.s
 
+CMakeFiles/ThesisTestSource.dir/HelperTypes/ThorupSingleSourceShortestPath.cpp.o: CMakeFiles/ThesisTestSource.dir/flags.make
+CMakeFiles/ThesisTestSource.dir/HelperTypes/ThorupSingleSourceShortestPath.cpp.o: ../HelperTypes/ThorupSingleSourceShortestPath.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ThesisTestSource.dir/HelperTypes/ThorupSingleSourceShortestPath.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ThesisTestSource.dir/HelperTypes/ThorupSingleSourceShortestPath.cpp.o -c /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/ThorupSingleSourceShortestPath.cpp
+
+CMakeFiles/ThesisTestSource.dir/HelperTypes/ThorupSingleSourceShortestPath.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ThesisTestSource.dir/HelperTypes/ThorupSingleSourceShortestPath.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/ThorupSingleSourceShortestPath.cpp > CMakeFiles/ThesisTestSource.dir/HelperTypes/ThorupSingleSourceShortestPath.cpp.i
+
+CMakeFiles/ThesisTestSource.dir/HelperTypes/ThorupSingleSourceShortestPath.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ThesisTestSource.dir/HelperTypes/ThorupSingleSourceShortestPath.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/ThorupSingleSourceShortestPath.cpp -o CMakeFiles/ThesisTestSource.dir/HelperTypes/ThorupSingleSourceShortestPath.cpp.s
+
+CMakeFiles/ThesisTestSource.dir/HelperTypes/Dijkstra.cpp.o: CMakeFiles/ThesisTestSource.dir/flags.make
+CMakeFiles/ThesisTestSource.dir/HelperTypes/Dijkstra.cpp.o: ../HelperTypes/Dijkstra.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ThesisTestSource.dir/HelperTypes/Dijkstra.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ThesisTestSource.dir/HelperTypes/Dijkstra.cpp.o -c /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Dijkstra.cpp
+
+CMakeFiles/ThesisTestSource.dir/HelperTypes/Dijkstra.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ThesisTestSource.dir/HelperTypes/Dijkstra.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Dijkstra.cpp > CMakeFiles/ThesisTestSource.dir/HelperTypes/Dijkstra.cpp.i
+
+CMakeFiles/ThesisTestSource.dir/HelperTypes/Dijkstra.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ThesisTestSource.dir/HelperTypes/Dijkstra.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Dijkstra.cpp -o CMakeFiles/ThesisTestSource.dir/HelperTypes/Dijkstra.cpp.s
+
+CMakeFiles/ThesisTestSource.dir/HelperTypes/Logger.cpp.o: CMakeFiles/ThesisTestSource.dir/flags.make
+CMakeFiles/ThesisTestSource.dir/HelperTypes/Logger.cpp.o: ../HelperTypes/Logger.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ThesisTestSource.dir/HelperTypes/Logger.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ThesisTestSource.dir/HelperTypes/Logger.cpp.o -c /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Logger.cpp
+
+CMakeFiles/ThesisTestSource.dir/HelperTypes/Logger.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ThesisTestSource.dir/HelperTypes/Logger.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Logger.cpp > CMakeFiles/ThesisTestSource.dir/HelperTypes/Logger.cpp.i
+
+CMakeFiles/ThesisTestSource.dir/HelperTypes/Logger.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ThesisTestSource.dir/HelperTypes/Logger.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Logger.cpp -o CMakeFiles/ThesisTestSource.dir/HelperTypes/Logger.cpp.s
+
 # Object files for target ThesisTestSource
 ThesisTestSource_OBJECTS = \
 "CMakeFiles/ThesisTestSource.dir/main.cpp.o" \
-"CMakeFiles/ThesisTestSource.dir/HelperTypes/PrimeGenerator.cpp.o"
+"CMakeFiles/ThesisTestSource.dir/HelperTypes/PrimeGenerator.cpp.o" \
+"CMakeFiles/ThesisTestSource.dir/HelperTypes/ThorupSingleSourceShortestPath.cpp.o" \
+"CMakeFiles/ThesisTestSource.dir/HelperTypes/Dijkstra.cpp.o" \
+"CMakeFiles/ThesisTestSource.dir/HelperTypes/Logger.cpp.o"
 
 # External object files for target ThesisTestSource
 ThesisTestSource_EXTERNAL_OBJECTS =
 
 ThesisTestSource: CMakeFiles/ThesisTestSource.dir/main.cpp.o
 ThesisTestSource: CMakeFiles/ThesisTestSource.dir/HelperTypes/PrimeGenerator.cpp.o
+ThesisTestSource: CMakeFiles/ThesisTestSource.dir/HelperTypes/ThorupSingleSourceShortestPath.cpp.o
+ThesisTestSource: CMakeFiles/ThesisTestSource.dir/HelperTypes/Dijkstra.cpp.o
+ThesisTestSource: CMakeFiles/ThesisTestSource.dir/HelperTypes/Logger.cpp.o
 ThesisTestSource: CMakeFiles/ThesisTestSource.dir/build.make
 ThesisTestSource: CMakeFiles/ThesisTestSource.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ThesisTestSource"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable ThesisTestSource"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ThesisTestSource.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

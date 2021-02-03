@@ -97,19 +97,49 @@
 		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/AdjecencyMatrix.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Dijkstra.cpp">
+			<Option target="ThesisTestSource"/>
+		</Unit>
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Dijkstra.hpp">
+			<Option target="ThesisTestSource"/>
+		</Unit>
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/DistanceMatrix.hpp">
+			<Option target="ThesisTestSource"/>
+		</Unit>
 		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Edge.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
 		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/HashTable2Level.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Logger.cpp">
+			<Option target="ThesisTestSource"/>
+		</Unit>
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Logger.hpp">
+			<Option target="ThesisTestSource"/>
+		</Unit>
 		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Matrix.hpp">
+			<Option target="ThesisTestSource"/>
+		</Unit>
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/MinHeap.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
 		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/PrimeGenerator.cpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
 		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/PrimeGenerator.hpp">
+			<Option target="ThesisTestSource"/>
+		</Unit>
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/SortedDistanceMatrix.hpp">
+			<Option target="ThesisTestSource"/>
+		</Unit>
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/ThorupSingleSourceShortestPath.cpp">
+			<Option target="ThesisTestSource"/>
+		</Unit>
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/ThorupSingleSourceShortestPath.hpp">
+			<Option target="ThesisTestSource"/>
+		</Unit>
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Types.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
 		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/main.cpp">

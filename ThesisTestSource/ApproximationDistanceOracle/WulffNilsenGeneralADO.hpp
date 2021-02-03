@@ -24,21 +24,21 @@ private:
             return dist(u, v, i1);
         int i = even_middle_index(i1, i2);
         int j = even_index_maximize_d(i1, i2);
-        if (!bunches[v].contains(p(j, u)) && !bunches[u].contains(p(j+1, v)))
+        if (!bunches[v]->contains(p(j, u)) && !bunches[u]->contains(p(j+1, v)))
             return bdist(u,v,i,i2);
         return bdist(u,v,i1,j);
     }
 
     double dist(int u, int v, int i){
         int w = p(i, u); int j = i;
-        while (!bunches[v].contains(w)){
+        while (!bunches[v]->contains(w)){
             j++;
             int tmp = v;
             v = u;
             u = tmp;
             w = p(j, u);
         }
-        return d(w, u) + bunches[w][v];
+        return d(w, u) + bunches[w]->operator[](v);
     }
 
     static int even_middle_index(int i1, int i2){
@@ -55,7 +55,7 @@ private:
     bool is_uv_terminal(int u, int v, int j){
         if (j == k_ - 1)
             return true;
-        return (j % 2 == 0) && (bunches[v].contains(p(j, u)) || bunches[u].contains(p(j + 1, v)));
+        return (j % 2 == 0) && (bunches[v]->contains(p(j, u)) || bunches[u]->contains(p(j + 1, v)));
     }
 
     bool is_uv_feasible(int u, int v, int i1, int i2){

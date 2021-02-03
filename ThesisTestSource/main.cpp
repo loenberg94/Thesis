@@ -1,28 +1,26 @@
 #include <iostream>
 #include <unordered_set>
+#include <vector>
+#include <string>
+#include <algorithm>
 
 #include "ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp"
 #include "ApproximationDistanceOracle/WulffNilsenGeneralADO.hpp"
+#include "ApproximationDistanceOracle/ChechikGeneralADO.hpp"
 #include "HelperTypes/HashTable2Level.hpp"
+#include "HelperTypes/Dijkstra.hpp"
+
+using namespace std;
+
 
 int main() {
 
-    vector<HashTableEntry> elements = {
-            {4, 5.6},
-            {7, 3.4},
-            {9, 2.8},
-            {0, 4},
-            {8, 1.9},
-            {10, 7},
-            {2, 6.7}
-    };
+    Matrix<double> t(2);
+    t(1,1) = 4;
 
-    HashTable2Level table(elements, elements.size());
-
-    for (auto elem: elements){
-        std::cout << table.contains(elem.key) << std::endl;
-    }
-
-    std::cout << "Hello, World!" << std::endl;
+    std::cout << t(1,1) << std::endl;
+    std::cout << t(0,0) << std::endl;
+    std::cout << t(1,0) << std::endl;
+    std::cout << t(0,1) << std::endl;
     return 0;
 }
