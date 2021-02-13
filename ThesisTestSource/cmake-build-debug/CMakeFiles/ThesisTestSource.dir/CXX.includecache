@@ -145,6 +145,10 @@ string
 -
 algorithm
 -
+fstream
+-
+exception
+-
 ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp
 /home/loenberg/Thesis/Thesis/ThesisTestSource/ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp
 ApproximationDistanceOracle/WulffNilsenGeneralADO.hpp

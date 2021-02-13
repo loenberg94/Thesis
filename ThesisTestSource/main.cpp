@@ -4,6 +4,7 @@
 #include <string>
 #include <algorithm>
 #include <fstream>
+#include <exception>
 
 #include "ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp"
 #include "ApproximationDistanceOracle/WulffNilsenGeneralADO.hpp"
@@ -97,15 +98,16 @@ vector<Edge> read_graph_file(){
     vector<Edge> edges;
 
     int u,v; double weight;
-    ifstream file("USA-road-d.NY.gr");
+    char a;
+    ifstream file("../USA-road-d.NY.gr");
     if (file.is_open()){
-        while (file >> u >> v >> weight){
+        while (file >> a >> u >> v >> weight){
             edges.push_back({u, v, weight});
         }
         file.close();
     }
     else{
-        throw "File wasn't opened";
+        throw "File not opened!";
     }
 
 
