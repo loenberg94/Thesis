@@ -42,6 +42,8 @@ public:
     }
 
     bool contains(int key){
+        if (mSize == 0)
+            return false;
         int si = hash(key, a, b, mSize);
         if (mBinsSizes[si] == 0)
             return false;
@@ -50,7 +52,7 @@ public:
         return key == entry.key;
     }
 
-    double& operator[](int key){
+    double operator[](int key){
         int si = hash(key, a, b, mSize);
         if (mBinsSizes[si] == 0)
             invalid_key(key);

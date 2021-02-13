@@ -97,6 +97,12 @@
 		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/AdjecencyMatrix.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/ClusterCover.cpp">
+			<Option target="ThesisTestSource"/>
+		</Unit>
+		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/ClusterCover.hpp">
+			<Option target="ThesisTestSource"/>
+		</Unit>
 		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Dijkstra.cpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>

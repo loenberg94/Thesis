@@ -14,6 +14,9 @@
 #include "../HelperTypes/AdjecencyMatrix.hpp"
 #include "../HelperTypes/ThorupSingleSourceShortestPath.hpp"
 #include "../HelperTypes/MinHeap.hpp"
+#include "../HelperTypes/Dijkstra.hpp"
+
+
 #include <cassert>
 #include <memory>
 #include <set>
@@ -50,7 +53,9 @@ public:
             u = tmp;
             w = p(i, u);
         }
-        return d(i, u) + bunches[v]->operator[](w);
+        double d1 = d(i, u);
+        double d2 = bunches[v]->operator[](w);
+        return d1 + d2;
     }
 
     int GetSize() override {
@@ -107,19 +112,21 @@ private:
         }
 
         for (int v = 0; v < v_size; v++){
+            vector<HashTableEntry> b_v;
             for (int i = 0; i < k; i++) {
                 for (int w: a_differences[i]){
                     double tmp_dist = distances(w, v);
                     if(tmp_dist < d(i + 1, v)){
-                        //bunches[v].insert({w, tmp_dist});
+                        b_v.push_back({w, tmp_dist});
                         size++;
                     }
                 }
             }
+            bunches.push_back(std::make_unique<HashTable2Level>(b_v, b_v.size()));
         }
     }
 
-    void prepro_graph(int k, int v_size, vector<Edge> edges){
+    void prepro_graph(int k, int v_size, vector<Edge> &edges){
         AdjecencyMatrix adj(v_size, edges);
         std::random_device rd;
         std::mt19937 gen (rd());
@@ -127,16 +134,17 @@ private:
         std::list<int> a_differences[k];
         std::unordered_set<int> A[k + 1];
 
-        for (int i = 0; i < v_size; i++) {
-            A[0].insert(i + 1);
-            d(k, i) = INFINITY;
+        for (int v = 0; v < v_size; v++) {
+            A[0].insert(v);
+            d(k, v) = INFINITY;
         }
 
+        auto probability_picked = std::pow((double)v_size, -1.0/(double)k);
         for (int i = 1; i < k; i++) {
             auto s = A[i - 1];
             for (int elem: s){
-                auto prob = dis(gen);
-                if (prob <= std::pow((double)v_size, -(1.0/(double)k))){
+                auto event = dis(gen);
+                if (event <= probability_picked){
                     A[i].insert(elem);
                 }
                 else{
@@ -145,14 +153,19 @@ private:
             }
         }
 
+        for (int v : A[k - 1])
+            a_differences[k - 1].push_back(v);
+
         vector<unordered_map<int, double>> C(v_size);
 
-        for (int i = k - 1; i < 0; i--) {
+        for (int i = k - 1; i >= 0; i--) {
+            adj.add_row(build_new_row(A[i]));
+
             for (int v = 0; v < v_size; v++) {
-                // Add extra column to adj matrix, symb. s
-                auto dAi = GetShortestPath(adj, v_size, v);
-                p(i, v) = dAi.w;
-                d(i, v) = dAi.distance;
+                auto dAi = shortest_distances_with_w(v_size, v, adj, v_size + 1);
+                p(i, v) = dAi.i;
+                d(i, v) = dAi.value;
+
             }
 
             adj.remove_last_row();
@@ -170,6 +183,14 @@ private:
             }
             bunches.push_back(std::make_unique<HashTable2Level>(temp_bunches, temp_bunches.size()));
         }
+    }
+
+    unordered_map<int, Entry> build_new_row(std::unordered_set<int> &A_i){
+        unordered_map<int, Entry> new_row;
+        for (int w : A_i){
+            new_row.insert({w, {w, 0}});
+        }
+        return new_row;
     }
 
     void grow_shortest_dist_tree(AdjecencyMatrix graph, vector<unordered_map<int, double>> &C, int w, int i, int v_size){

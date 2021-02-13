@@ -10,6 +10,7 @@
 
 double shortest_distance(int s, int t, AdjecencyMatrix &graph, int v_size);
 vector<double> shortest_distances(int s, AdjecencyMatrix &graph, int v_size);
+index_value shortest_distances_with_w(int s, int t, AdjecencyMatrix &graph, int v_size);
 
 
 #endif //THESISTESTSOURCE_DIJKSTRA_HPP

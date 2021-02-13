@@ -6,6 +6,7 @@
 #define THESISSOURCE_MATRIX_HPP
 
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -46,6 +47,8 @@ public:
     }
 
     T& operator()(int i, int j){
+        assert(i < mRows);
+        assert(j < mCols);
         return data[(i * mCols) + j];
     }
 

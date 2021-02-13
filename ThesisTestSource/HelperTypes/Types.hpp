@@ -11,6 +11,11 @@ struct vertex_distance{
     double distance;
 };
 
+struct index_value{
+    int i;
+    double value;
+};
+
 struct vertex_distance_distance_comparer{
     bool operator()(const vertex_distance& vd1, const vertex_distance& vd2){
         return vd1.distance < vd2.distance;

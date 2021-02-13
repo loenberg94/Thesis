@@ -6,24 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/loenberg/Thesis/Thesis/ThesisTestSource/ApproximationDistanceOracle/ChechikGeneralADO.hpp
-../BaseClasses/DistanceOracle.hpp
-/home/loenberg/Thesis/Thesis/ThesisTestSource/BaseClasses/DistanceOracle.hpp
-../HelperTypes/Types.hpp
-/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Types.hpp
-../HelperTypes/Dijkstra.hpp
-/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Dijkstra.hpp
-../HelperTypes/DistanceMatrix.hpp
-/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/DistanceMatrix.hpp
-../HelperTypes/SortedDistanceMatrix.hpp
-/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/SortedDistanceMatrix.hpp
-unordered_set
--
-cmath
--
-tuple
--
-
 /home/loenberg/Thesis/Thesis/ThesisTestSource/ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp
 ../BaseClasses/DistanceOracle.hpp
 /home/loenberg/Thesis/Thesis/ThesisTestSource/BaseClasses/DistanceOracle.hpp
@@ -39,6 +21,8 @@ tuple
 /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/ThorupSingleSourceShortestPath.hpp
 ../HelperTypes/MinHeap.hpp
 /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/MinHeap.hpp
+../HelperTypes/Dijkstra.hpp
+/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Dijkstra.hpp
 cassert
 -
 memory
@@ -82,25 +66,11 @@ unordered_map
 Edge.hpp
 /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Edge.hpp
 
-/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Dijkstra.cpp
-Dijkstra.hpp
-/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Dijkstra.hpp
-MinHeap.hpp
-/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/MinHeap.hpp
-unordered_set
--
-
 /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Dijkstra.hpp
 ../HelperTypes/Types.hpp
 /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Types.hpp
 ../HelperTypes/AdjecencyMatrix.hpp
 /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/AdjecencyMatrix.hpp
-
-/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/DistanceMatrix.hpp
-Matrix.hpp
-/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Matrix.hpp
-Dijkstra.hpp
-/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Dijkstra.hpp
 
 /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Edge.hpp
 
@@ -122,10 +92,6 @@ unordered_map
 PrimeGenerator.hpp
 /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/PrimeGenerator.hpp
 
-/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Logger.cpp
-Logger.hpp
-/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Logger.hpp
-
 /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Logger.hpp
 iostream
 -
@@ -134,6 +100,8 @@ string
 
 /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Matrix.hpp
 vector
+-
+cassert
 -
 
 /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/MinHeap.hpp
@@ -152,6 +120,8 @@ Logger.hpp
 Dijkstra.hpp
 /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Dijkstra.hpp
 vector
+-
+unordered_set
 -
 
 /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/ThorupSingleSourceShortestPath.hpp
@@ -179,10 +149,10 @@ ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp
 /home/loenberg/Thesis/Thesis/ThesisTestSource/ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp
 ApproximationDistanceOracle/WulffNilsenGeneralADO.hpp
 /home/loenberg/Thesis/Thesis/ThesisTestSource/ApproximationDistanceOracle/WulffNilsenGeneralADO.hpp
-ApproximationDistanceOracle/ChechikGeneralADO.hpp
-/home/loenberg/Thesis/Thesis/ThesisTestSource/ApproximationDistanceOracle/ChechikGeneralADO.hpp
 HelperTypes/HashTable2Level.hpp
 /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/HashTable2Level.hpp
 HelperTypes/Dijkstra.hpp
 /home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Dijkstra.hpp
+HelperTypes/SortedDistanceMatrix.hpp
+/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/SortedDistanceMatrix.hpp
 

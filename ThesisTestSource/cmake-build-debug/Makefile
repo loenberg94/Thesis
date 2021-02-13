@@ -143,6 +143,33 @@ ThesisTestSource/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThesisTestSource.dir/build.make CMakeFiles/ThesisTestSource.dir/build
 .PHONY : ThesisTestSource/fast
 
+HelperTypes/ClusterCover.o: HelperTypes/ClusterCover.cpp.o
+
+.PHONY : HelperTypes/ClusterCover.o
+
+# target to build an object file
+HelperTypes/ClusterCover.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThesisTestSource.dir/build.make CMakeFiles/ThesisTestSource.dir/HelperTypes/ClusterCover.cpp.o
+.PHONY : HelperTypes/ClusterCover.cpp.o
+
+HelperTypes/ClusterCover.i: HelperTypes/ClusterCover.cpp.i
+
+.PHONY : HelperTypes/ClusterCover.i
+
+# target to preprocess a source file
+HelperTypes/ClusterCover.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThesisTestSource.dir/build.make CMakeFiles/ThesisTestSource.dir/HelperTypes/ClusterCover.cpp.i
+.PHONY : HelperTypes/ClusterCover.cpp.i
+
+HelperTypes/ClusterCover.s: HelperTypes/ClusterCover.cpp.s
+
+.PHONY : HelperTypes/ClusterCover.s
+
+# target to generate assembly for a file
+HelperTypes/ClusterCover.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThesisTestSource.dir/build.make CMakeFiles/ThesisTestSource.dir/HelperTypes/ClusterCover.cpp.s
+.PHONY : HelperTypes/ClusterCover.cpp.s
+
 HelperTypes/Dijkstra.o: HelperTypes/Dijkstra.cpp.o
 
 .PHONY : HelperTypes/Dijkstra.o
@@ -287,6 +314,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... ThesisTestSource"
+	@echo "... HelperTypes/ClusterCover.o"
+	@echo "... HelperTypes/ClusterCover.i"
+	@echo "... HelperTypes/ClusterCover.s"
 	@echo "... HelperTypes/Dijkstra.o"
 	@echo "... HelperTypes/Dijkstra.i"
 	@echo "... HelperTypes/Dijkstra.s"
