@@ -7,6 +7,8 @@ CMakeFiles/ThesisTestSource.dir/HelperTypes/ClusterCover.cpp.o: ../HelperTypes/C
 CMakeFiles/ThesisTestSource.dir/HelperTypes/ClusterCover.cpp.o: ../HelperTypes/Dijkstra.hpp
 CMakeFiles/ThesisTestSource.dir/HelperTypes/ClusterCover.cpp.o: ../HelperTypes/Edge.hpp
 CMakeFiles/ThesisTestSource.dir/HelperTypes/ClusterCover.cpp.o: ../HelperTypes/Logger.hpp
+CMakeFiles/ThesisTestSource.dir/HelperTypes/ClusterCover.cpp.o: ../HelperTypes/Matrix.hpp
+CMakeFiles/ThesisTestSource.dir/HelperTypes/ClusterCover.cpp.o: ../HelperTypes/MinHeap.hpp
 CMakeFiles/ThesisTestSource.dir/HelperTypes/ClusterCover.cpp.o: ../HelperTypes/SortedDistanceMatrix.hpp
 CMakeFiles/ThesisTestSource.dir/HelperTypes/ClusterCover.cpp.o: ../HelperTypes/Types.hpp
 
@@ -14,6 +16,7 @@ CMakeFiles/ThesisTestSource.dir/HelperTypes/Dijkstra.cpp.o: ../HelperTypes/Adjec
 CMakeFiles/ThesisTestSource.dir/HelperTypes/Dijkstra.cpp.o: ../HelperTypes/Dijkstra.cpp
 CMakeFiles/ThesisTestSource.dir/HelperTypes/Dijkstra.cpp.o: ../HelperTypes/Dijkstra.hpp
 CMakeFiles/ThesisTestSource.dir/HelperTypes/Dijkstra.cpp.o: ../HelperTypes/Edge.hpp
+CMakeFiles/ThesisTestSource.dir/HelperTypes/Dijkstra.cpp.o: ../HelperTypes/Matrix.hpp
 CMakeFiles/ThesisTestSource.dir/HelperTypes/Dijkstra.cpp.o: ../HelperTypes/MinHeap.hpp
 CMakeFiles/ThesisTestSource.dir/HelperTypes/Dijkstra.cpp.o: ../HelperTypes/Types.hpp
 
@@ -29,7 +32,6 @@ CMakeFiles/ThesisTestSource.dir/HelperTypes/ThorupSingleSourceShortestPath.cpp.o
 CMakeFiles/ThesisTestSource.dir/HelperTypes/ThorupSingleSourceShortestPath.cpp.o: ../HelperTypes/ThorupSingleSourceShortestPath.hpp
 
 CMakeFiles/ThesisTestSource.dir/main.cpp.o: ../ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp
-CMakeFiles/ThesisTestSource.dir/main.cpp.o: ../ApproximationDistanceOracle/WulffNilsenGeneralADO.hpp
 CMakeFiles/ThesisTestSource.dir/main.cpp.o: ../BaseClasses/DistanceOracle.hpp
 CMakeFiles/ThesisTestSource.dir/main.cpp.o: ../HelperTypes/AdjecencyMatrix.hpp
 CMakeFiles/ThesisTestSource.dir/main.cpp.o: ../HelperTypes/Dijkstra.hpp

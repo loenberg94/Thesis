@@ -1,16 +1,11 @@
 #include <iostream>
-#include <unordered_set>
 #include <vector>
-#include <string>
 #include <algorithm>
 #include <fstream>
-#include <exception>
 
 #include "ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp"
-#include "ApproximationDistanceOracle/WulffNilsenGeneralADO.hpp"
 //#include "ApproximationDistanceOracle/ChechikGeneralADO.hpp"
-#include "HelperTypes/HashTable2Level.hpp"
-#include "HelperTypes/Dijkstra.hpp"
+#include "HelperTypes/Logger.hpp"
 #include "HelperTypes/SortedDistanceMatrix.hpp"
 
 using namespace std;
@@ -94,22 +89,23 @@ void MinorTest(){
     cout << "" << endl;
 }
 
-vector<Edge> read_graph_file(){
-    vector<Edge> edges;
+vector<Edge> read_graph_file(int size){
+    vector<Edge> edges(size);
+    int i = 0;
 
     int u,v; double weight;
     char a;
     ifstream file("../USA-road-d.NY.gr");
     if (file.is_open()){
         while (file >> a >> u >> v >> weight){
-            edges.push_back({u, v, weight});
+            edges[i] = {u - 1, v - 1, weight};
+            i++;
         }
         file.close();
     }
     else{
         throw "File not opened!";
     }
-
 
     return edges;
 }
@@ -118,9 +114,18 @@ int main() {
 
     int k = 3;
     int n = 264346;
+    int e = 733846;
 
-    auto edges = read_graph_file();
-    ThorupZwickGeneralADO ado(k, n, edges);
+    //MinorTest();
+
+    log("Loading file.");
+    //auto edges = read_graph_file(e);
+    log("File loaded.");
+    //ThorupZwickGeneralADO ado(k, n, edges);
+
+    SortedDistanceMatrix test(n);
+
+
 
     return 0;
 }

@@ -15,6 +15,7 @@
 #include "../HelperTypes/ThorupSingleSourceShortestPath.hpp"
 #include "../HelperTypes/MinHeap.hpp"
 #include "../HelperTypes/Dijkstra.hpp"
+#include "../HelperTypes/Logger.hpp"
 
 
 #include <cassert>
@@ -71,9 +72,9 @@ protected:
 private:
     int size = 0;
 
-    ThorupZwickGeneralADO(int k, int v_size){
-        p = Matrix<int> (k, v_size, [](int i, int j) {return 0;});
-        d = Matrix<double> (k + 1, v_size, [](int i, int j) {return 0.0;});
+    ThorupZwickGeneralADO(int k, int v_size):
+    p(k, v_size),
+    d(k + 1, v_size){
         k_ = k;
     }
 
@@ -134,10 +135,13 @@ private:
         std::list<int> a_differences[k];
         std::unordered_set<int> A[k + 1];
 
+        log("prepro - initial setup");
         for (int v = 0; v < v_size; v++) {
             A[0].insert(v);
             d(k, v) = INFINITY;
         }
+
+        log("prepro - A_0 and d_k setup");
 
         auto probability_picked = std::pow((double)v_size, -1.0/(double)k);
         for (int i = 1; i < k; i++) {
@@ -156,16 +160,20 @@ private:
         for (int v : A[k - 1])
             a_differences[k - 1].push_back(v);
 
-        vector<unordered_map<int, double>> C(v_size);
+        log("prepro - A_i and differences setup");
 
-        for (int i = k - 1; i >= 0; i--) {
+        vector<unordered_map<int, double>> C(v_size);
+        auto dijkstra = new Dijkstra(v_size + 1);
+        auto distances = new Matrix<index_value>(v_size);
+
+        for (int i = k - 1; i > 0; i--) {
+            log("prepro - Covers - iteration count");
             adj.add_row(build_new_row(A[i]));
 
             for (int v = 0; v < v_size; v++) {
-                auto dAi = shortest_distances_with_w(v_size, v, adj, v_size + 1);
+                auto dAi = dijkstra->shortest_distances_with_w(v_size, v, adj, A[i], *distances);
                 p(i, v) = dAi.i;
                 d(i, v) = dAi.value;
-
             }
 
             adj.remove_last_row();
@@ -175,6 +183,11 @@ private:
             }
         }
 
+        delete dijkstra;
+
+        log("prepro - Covers setup setup");
+
+
         for (int v = 0; v < v_size; v++) {
             vector<HashTableEntry> temp_bunches;
             for (int w = 0; w < v_size; w++) {
@@ -183,6 +196,9 @@ private:
             }
             bunches.push_back(std::make_unique<HashTable2Level>(temp_bunches, temp_bunches.size()));
         }
+
+        log("prepro - bunches setup");
+
     }
 
     unordered_map<int, Entry> build_new_row(std::unordered_set<int> &A_i){

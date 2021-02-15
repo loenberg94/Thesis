@@ -8,150 +8,148 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug"/>
+				<Option working_dir="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug"/>
+				<Option working_dir="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug"/>
+				<Option working_dir="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="ThesisTestSource">
-				<Option output="/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/ThesisTestSource" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug"/>
+				<Option output="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug/ThesisTestSource.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include/c++"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include/c++/x86_64-pc-cygwin"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include/c++/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include"/>
 					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/../../../../lib/../include/w32api"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 ThesisTestSource"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 ThesisTestSource"/>
+					<CompileFile command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="ThesisTestSource/fast">
-				<Option output="/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/ThesisTestSource" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug"/>
+				<Option output="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug/ThesisTestSource.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include/c++"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include/c++/x86_64-pc-cygwin"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include/c++/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include"/>
 					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/../../../../lib/../include/w32api"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 ThesisTestSource/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/loenberg/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 ThesisTestSource/fast"/>
+					<CompileFile command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/ApproximationDistanceOracle/ChechikGeneralADO.hpp">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/ApproximationDistanceOracle/ChechikGeneralADO.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/ApproximationDistanceOracle/WulffNilsenGeneralADO.hpp">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/ApproximationDistanceOracle/WulffNilsenGeneralADO.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/BaseClasses/DistanceOracle.hpp">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/BaseClasses/DistanceOracle.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/AdjecencyMatrix.hpp">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/HelperTypes/AdjecencyMatrix.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/ClusterCover.cpp">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/HelperTypes/ClusterCover.cpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/ClusterCover.hpp">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/HelperTypes/ClusterCover.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Dijkstra.cpp">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/HelperTypes/Dijkstra.cpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Dijkstra.hpp">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/HelperTypes/Dijkstra.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/DistanceMatrix.hpp">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/HelperTypes/DistanceMatrix.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Edge.hpp">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/HelperTypes/Edge.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/HashTable2Level.hpp">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/HelperTypes/HashTable2Level.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Logger.cpp">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/HelperTypes/Logger.cpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Logger.hpp">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/HelperTypes/Logger.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Matrix.hpp">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/HelperTypes/Matrix.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/MinHeap.hpp">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/HelperTypes/MinHeap.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/PrimeGenerator.cpp">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/HelperTypes/PrimeGenerator.cpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/PrimeGenerator.hpp">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/HelperTypes/PrimeGenerator.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/SortedDistanceMatrix.hpp">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/HelperTypes/SortedDistanceMatrix.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/ThorupSingleSourceShortestPath.cpp">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/HelperTypes/ThorupSingleSourceShortestPath.cpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/ThorupSingleSourceShortestPath.hpp">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/HelperTypes/ThorupSingleSourceShortestPath.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/HelperTypes/Types.hpp">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/HelperTypes/Types.hpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/main.cpp">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/main.cpp">
 			<Option target="ThesisTestSource"/>
 		</Unit>
-		<Unit filename="/home/loenberg/Thesis/Thesis/ThesisTestSource/CMakeLists.txt">
+		<Unit filename="/cygdrive/c/Users/loenb/OneDrive/studie/Thesis/Thesis/ThesisTestSource/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

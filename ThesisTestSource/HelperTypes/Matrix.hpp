@@ -23,28 +23,17 @@ public:
 
     }
 
-    Matrix(int n, T (*constructor)(int,int)){
-        data = vector<T>(n * n);
-        mRows = n;
-        mCols = n;
-        for (int i = 0; i < n * n; i++) {
-            data[i] = constructor(i / n, i % n);
-        }
+    explicit Matrix(int n):
+    data(n * n){
+        mRows = mCols = n;;
     }
 
-    explicit Matrix(int n):Matrix(n, [](int i, int j) {return T();}){
-        mRows = mCols = n;
-    }
-
-    Matrix(int rows, int cols):Matrix(rows * cols){
+    Matrix(int rows, int cols):
+    data(rows * cols){
         mRows = rows;
         mCols = cols;
     }
 
-    Matrix(int rows, int cols, T (*constructor)(int,int)): Matrix(rows*cols, constructor){
-        mRows = rows;
-        mCols = cols;
-    }
 
     T& operator()(int i, int j){
         assert(i < mRows);

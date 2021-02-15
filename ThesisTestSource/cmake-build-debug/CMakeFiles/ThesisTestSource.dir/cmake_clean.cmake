@@ -5,8 +5,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/ThesisTestSource.dir/HelperTypes/PrimeGenerator.cpp.o"
   "CMakeFiles/ThesisTestSource.dir/HelperTypes/ThorupSingleSourceShortestPath.cpp.o"
   "CMakeFiles/ThesisTestSource.dir/main.cpp.o"
-  "ThesisTestSource"
+  "ThesisTestSource.exe"
   "ThesisTestSource.pdb"
+  "libThesisTestSource.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

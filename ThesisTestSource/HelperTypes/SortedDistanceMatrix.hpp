@@ -47,6 +47,7 @@ public:
 
         bool insert_new = distances[vertex_indeces[v]].distance == INFINITY;
         if (insert_new){
+            distances[vertex_indeces[v]].v = v;
             distances[vertex_indeces[v]].distance = distance;
             count++;
             if (count == size){
@@ -165,6 +166,10 @@ public:
         }
 
         return l_closest;
+    }
+
+    void set_distance(int u, int v, double weight){
+        vertex_distances[u].setDistance(v,weight);
     }
 
     vector<vertex_distance> get_nodes_less_than_distance_d(int u, double d, AdjecencyMatrix &graph){
