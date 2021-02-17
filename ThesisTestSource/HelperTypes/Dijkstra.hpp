@@ -40,7 +40,15 @@ public:
 
     }
 
-    index_value shortest_distances_with_w(int s, int t, AdjecencyMatrix &graph, unordered_set<int> &A_i, Matrix<index_value> &distances){
+    vector<int>& get_prev(){
+        return prev;
+    }
+
+    vector<double>& get_d(){
+        return d;
+    }
+
+    void shortest_distances_with_w(int s, AdjecencyMatrix &graph, unordered_set<int> &A_i){
         MinHeap dpq (size);
         dpq.insertKey(s, 0);
         for (int j = 0; j < size; j++) {
@@ -55,7 +63,7 @@ public:
         while (q.v != -1){
             if (A_i.contains(q.v))
                 prev[q.v] = q.v;
-            auto adjecent_vertices = graph[q.v];
+            unordered_map<int,Entry>& adjecent_vertices = graph[q.v];
             for (auto [key, value]: adjecent_vertices){
                 if (visited[key])
                     continue;
@@ -70,8 +78,6 @@ public:
             visited[q.v] = true;
             q = dpq.extractMin();
         }
-
-        return {prev[t], d[t]};
     }
 
 };

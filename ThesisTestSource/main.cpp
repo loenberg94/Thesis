@@ -1,8 +1,11 @@
 #include <iostream>
+#include <utility>
 #include <vector>
 #include <algorithm>
 #include <fstream>
-
+#include <stack>
+#include <thread>
+#include <chrono>
 #include "ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp"
 //#include "ApproximationDistanceOracle/ChechikGeneralADO.hpp"
 #include "HelperTypes/Logger.hpp"
@@ -76,7 +79,7 @@ void MinorTest(){
             {19, 17, 6},
     };
 
-    int k = 3;
+    int k = 2;
 
     ThorupZwickGeneralADO ado(k, 20, edges);
 
@@ -109,23 +112,110 @@ vector<Edge> read_graph_file(int size){
 
     return edges;
 }
+struct t_arg{
+    int size;
+    AdjecencyMatrix graph;
+    int beginning, end;
+};
+
+class section_container{
+public:
+    int size;
+    AdjecencyMatrix graph;
+    int beginning;
+    int end;
+
+    section_container(AdjecencyMatrix graph, int b, int e) :
+    graph(graph),
+    size(graph.length()),
+    beginning(b),
+    end(e){
+
+    }
+};
+
+void shortest_distances_2(int s, AdjecencyMatrix &graph, int v_size){
+    MinHeap dpq (v_size);
+    dpq.insertKey(s, 0);
+    for (int j = 0; j < v_size; j++) {
+        if (j != s)
+            dpq.insertKey(j, INFINITY);
+    }
+
+    vector<double> d_temp(v_size, INFINITY);
+    d_temp[s] = 0;
+    vector<bool> visited_vertices(v_size, false);
+
+    QueueItem q = dpq.extractMin();
+    while (q.v != -1){
+        if (!visited_vertices[q.v]){
+            auto adjecent_vertices = graph[q.v];
+            for (auto [key, value]: adjecent_vertices){
+                double tmp_dist = d_temp[q.v] + value.weight;
+                if (tmp_dist < d_temp[key]){
+                    d_temp[key] = tmp_dist;
+                    dpq.decreaseKey(key, d_temp[key]);
+                }
+            }
+            visited_vertices[q.v] = true;
+        }
+        q = dpq.extractMin();
+    }
+}
+
+void run_section(section_container t){
+    for(int i = t.beginning; i <= t.end; i++){
+        shortest_distances_2(i, t.graph, t.size);
+        log(to_string(i));
+    }
+}
 
 int main() {
 
-    int k = 3;
+    int k = 10;
     int n = 264346;
     int e = 733846;
 
     //MinorTest();
 
     log("Loading file.");
-    //auto edges = read_graph_file(e);
+    auto edges = read_graph_file(e);
     log("File loaded.");
     //ThorupZwickGeneralADO ado(k, n, edges);
 
-    SortedDistanceMatrix test(n);
+    int n_ = 1000;
+
+    vector<int> numbers(n_);
+    for (int i = 0; i < n_; i++) {
+        numbers[i] = n_ - i;
+    }
 
 
+    AdjecencyMatrix graph(n, edges);
+    const int THREADS = 6;
+
+    int chunk_size = n/THREADS;
+
+    log(to_string(std::thread::hardware_concurrency()));
+
+    /**
+    section_container* sc1 = new section_container(graph, 0, 50);
+    section_container* sc2 = new section_container(graph, 50, 100);
+
+    std::thread obj(run_section, *sc1);
+    std::thread obj1(run_section, *sc2);
+    //std::thread obj2(run_section,(t_arg){n, graph, 2 * chunk_size, 3*chunk_size});
+    //std::thread obj3(run_section,(t_arg){n, graph, 3 * chunk_size, 4*chunk_size});
+    //std::thread obj4(run_section,(t_arg){n, graph, 4 * chunk_size, 5*chunk_size});
+    //std::thread obj5(run_section,(t_arg){n, graph, 5 * chunk_size, n});
+
+
+    obj.join();
+    obj1.join();
+    //obj2.join();
+    //obj3.join();
+    //obj4.join();
+    //obj5.join();**/
 
     return 0;
 }

@@ -60,7 +60,8 @@ public:
         auto entry = mData[si].table[mi];
         if (entry.key == key)
             return entry.value;
-        invalid_key(key);
+        throw std::invalid_argument("Invalid key");
+        //invalid_key(key);
     }
 
 private:

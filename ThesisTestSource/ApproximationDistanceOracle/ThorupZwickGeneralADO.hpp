@@ -22,6 +22,8 @@
 #include <memory>
 #include <set>
 #include <iterator>
+#include <execution>
+#include <algorithm>
 #include <cmath>
 #include <random>
 #include <tuple>
@@ -155,6 +157,7 @@ private:
                     a_differences[i - 1].push_back(elem);
                 }
             }
+            log("prepro - A[" + to_string(i) + "].size: " + to_string(A[i].size()));
         }
 
         for (int v : A[k - 1])
@@ -163,27 +166,46 @@ private:
         log("prepro - A_i and differences setup");
 
         vector<unordered_map<int, double>> C(v_size);
-        auto dijkstra = new Dijkstra(v_size + 1);
-        auto distances = new Matrix<index_value>(v_size);
+        Dijkstra dijkstra(v_size + 1);
 
-        for (int i = k - 1; i > 0; i--) {
+        for (int i = k - 1; i >= 0; i--) {
+            log("");
             log("prepro - Covers - iteration count");
             adj.add_row(build_new_row(A[i]));
 
+            dijkstra.shortest_distances_with_w(v_size, adj, A[i]);
+
+            auto d_ = dijkstra.get_d();
+            auto p_ = dijkstra.get_prev();
+
             for (int v = 0; v < v_size; v++) {
-                auto dAi = dijkstra->shortest_distances_with_w(v_size, v, adj, A[i], *distances);
-                p(i, v) = dAi.i;
-                d(i, v) = dAi.value;
+                d(i, v) = d_[v];
+                if (d(i,v) == d(i+1, v))
+                    p(i, v) = p(i+1,v);
+                else
+                    p(i, v) = p_[v];
             }
+            log("prepro - Covers - p, d updated");
 
             adj.remove_last_row();
 
+            log("prepro - Covers - Growing tree");
+            log("prepro - A[" + to_string(i) + "] - A[" + to_string(i+1) + "]: " + to_string(a_differences[i].size()));
+
+
+
+            /**std::for_each(
+                    std::execution::par_unseq,
+                    a_differences[i].begin(),
+                    a_differences[i].end(),
+                    [this, &adj, &C, i, v_size](int w){
+                        grow_shortest_dist_tree(adj, C, w, i, v_size);
+                    });**/
             for (int w: a_differences[i]){
                 grow_shortest_dist_tree(adj, C, w, i, v_size);
             }
+            log("prepro - Covers - Tree grown");
         }
-
-        delete dijkstra;
 
         log("prepro - Covers setup setup");
 
@@ -209,7 +231,7 @@ private:
         return new_row;
     }
 
-    void grow_shortest_dist_tree(AdjecencyMatrix graph, vector<unordered_map<int, double>> &C, int w, int i, int v_size){
+    void grow_shortest_dist_tree(AdjecencyMatrix &graph, vector<unordered_map<int, double>> &C, int w, int i, int v_size){
         MinHeap dpq(v_size);
         dpq.insertKey(w, 0);
         for (int j = 0; j < v_size; j++) {
@@ -218,14 +240,18 @@ private:
         }
 
         vector<double> d_temp(v_size, INFINITY);
+        vector<bool> visited(v_size, false);
         d_temp[w] = 0;
-        unordered_set<int> visited_vertices;
-
+        //log("");
         QueueItem q = dpq.extractMin();
         while (q.v != -1){
-            if (!visited_vertices.contains(q.v)){
+            //log("Node: " + to_string(q.v));
+            if (!visited[q.v]){
                 auto adjecent_vertices = graph[q.v];
                 for (auto [key, value]: adjecent_vertices){
+                    if (visited[key])
+                        continue;
+                    //log(" - " + to_string(key));
                     double tmp_dist = d_temp[q.v] + value.weight;
                     if (tmp_dist < d(i + 1, key)){
                         d_temp[key] = min(d_temp[key], tmp_dist);
@@ -238,7 +264,7 @@ private:
                         dpq.decreaseKey(key, d_temp[key]);
                     }
                 }
-                visited_vertices.insert(q.v);
+                visited[q.v] = true;
             }
             q = dpq.extractMin();
         }

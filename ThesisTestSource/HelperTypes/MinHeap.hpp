@@ -48,7 +48,7 @@ public:
             smallest = r;
         if (smallest != i)
         {
-            swap_index(harr[i].v, harr[parent(i)].v);
+            swap_index(harr[i].v, harr[smallest].v);
             swap_items(&harr[i], &harr[smallest]);
             MinHeapify(smallest);
         }
@@ -76,6 +76,7 @@ public:
         // Store the minimum value, and remove it from heap
         QueueItem root = harr[0];
         harr[0] = harr[heap_size-1];
+        vertexIndeces[harr[0].v] = 0;
         heap_size--;
         MinHeapify(0);
 
@@ -121,6 +122,7 @@ public:
         heap_size++;
         int i = heap_size - 1;
         harr[i] = {v, k};
+        vertexIndeces[v] = i;
 
         // Fix the min heap property if it is violated
         while (i != 0 && harr[parent(i)].distance > harr[i].distance)
@@ -129,7 +131,7 @@ public:
             swap_items(&harr[i], &harr[parent(i)]);
             i = parent(i);
         }
-        vertexIndeces[v] = i;
+
     }
 
 private:

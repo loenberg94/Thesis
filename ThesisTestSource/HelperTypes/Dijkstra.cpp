@@ -17,11 +17,11 @@ vector<double> shortest_distances(int s, AdjecencyMatrix &graph, int v_size){
 
     vector<double> d_temp(v_size, INFINITY);
     d_temp[s] = 0;
-    unordered_set<int> visited_vertices;
+    vector<bool> visited_vertices(v_size);
 
     QueueItem q = dpq.extractMin();
     while (q.v != -1){
-        if (!visited_vertices.contains(q.v)){
+        if (!visited_vertices[q.v]){
             auto adjecent_vertices = graph[q.v];
             for (auto [key, value]: adjecent_vertices){
                 double tmp_dist = d_temp[q.v] + value.weight;
@@ -30,7 +30,7 @@ vector<double> shortest_distances(int s, AdjecencyMatrix &graph, int v_size){
                     dpq.decreaseKey(key, d_temp[key]);
                 }
             }
-            visited_vertices.insert(q.v);
+            visited_vertices[q.v] = true;
         }
         q = dpq.extractMin();
     }
