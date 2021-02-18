@@ -223,10 +223,12 @@ private:
 
     }
 
-    unordered_map<int, Entry> build_new_row(std::unordered_set<int> &A_i){
-        unordered_map<int, Entry> new_row;
+    vector<Entry> build_new_row(std::unordered_set<int> &A_i){
+        vector<Entry> new_row(A_i.size());
+        int i = 0;
         for (int w : A_i){
-            new_row.insert({w, {w, 0}});
+            new_row[i] = {w, 0};
+            i++;
         }
         return new_row;
     }
@@ -248,20 +250,20 @@ private:
             //log("Node: " + to_string(q.v));
             if (!visited[q.v]){
                 auto adjecent_vertices = graph[q.v];
-                for (auto [key, value]: adjecent_vertices){
-                    if (visited[key])
+                for (auto edge: adjecent_vertices){
+                    if (visited[edge.v])
                         continue;
                     //log(" - " + to_string(key));
-                    double tmp_dist = d_temp[q.v] + value.weight;
-                    if (tmp_dist < d(i + 1, key)){
-                        d_temp[key] = min(d_temp[key], tmp_dist);
-                        if (C[w].contains(key)){
-                            C[w][key] = d_temp[key];
+                    double tmp_dist = d_temp[q.v] + edge.weight;
+                    if (tmp_dist < d(i + 1, edge.v)){
+                        d_temp[edge.v] = min(d_temp[edge.v], tmp_dist);
+                        if (C[w].contains(edge.v)){
+                            C[w][edge.v] = d_temp[edge.v];
                         }
                         else{
-                            C[w].insert({key, d_temp[key]});
+                            C[w].insert({edge.v, d_temp[edge.v]});
                         }
-                        dpq.decreaseKey(key, d_temp[key]);
+                        dpq.decreaseKey(edge.v, d_temp[edge.v]);
                     }
                 }
                 visited[q.v] = true;

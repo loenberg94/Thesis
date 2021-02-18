@@ -23,11 +23,11 @@ vector<double> shortest_distances(int s, AdjecencyMatrix &graph, int v_size){
     while (q.v != -1){
         if (!visited_vertices[q.v]){
             auto adjecent_vertices = graph[q.v];
-            for (auto [key, value]: adjecent_vertices){
-                double tmp_dist = d_temp[q.v] + value.weight;
-                if (tmp_dist < d_temp[key]){
-                    d_temp[key] = tmp_dist;
-                    dpq.decreaseKey(key, d_temp[key]);
+            for (auto edge: adjecent_vertices){
+                double tmp_dist = d_temp[q.v] + edge.weight;
+                if (tmp_dist < d_temp[edge.v]){
+                    d_temp[edge.v] = tmp_dist;
+                    dpq.decreaseKey(edge.v, d_temp[edge.v]);
                 }
             }
             visited_vertices[q.v] = true;

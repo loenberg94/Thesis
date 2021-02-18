@@ -63,16 +63,16 @@ public:
         while (q.v != -1){
             if (A_i.contains(q.v))
                 prev[q.v] = q.v;
-            unordered_map<int,Entry>& adjecent_vertices = graph[q.v];
-            for (auto [key, value]: adjecent_vertices){
-                if (visited[key])
+            vector<Entry>& adjecent_vertices = graph[q.v];
+            for (auto edge: adjecent_vertices){
+                if (visited[edge.v])
                     continue;
-                double tmp_dist = d[q.v] + value.weight;
-                if (tmp_dist < d[key]){
-                    if (!A_i.contains(key))
-                        prev[key] = prev[q.v];
-                    d[key] = tmp_dist;
-                    dpq.decreaseKey(key, d[key]);
+                double tmp_dist = d[q.v] + edge.weight;
+                if (tmp_dist < d[edge.v]){
+                    if (!A_i.contains(edge.v))
+                        prev[edge.v] = prev[q.v];
+                    d[edge.v] = tmp_dist;
+                    dpq.decreaseKey(edge.v, d[edge.v]);
                 }
             }
             visited[q.v] = true;

@@ -19,25 +19,25 @@ struct Entry{
 
 class AdjecencyMatrix{
 private:
-    vector<unordered_map<int,Entry>> mData;
+    vector<vector<Entry>> mData;
 
 public:
     AdjecencyMatrix(int v, vector<Edge> &edges):
         mData(v)
     {
         for (auto e: edges){
-            mData[e.u].insert({e.v, {e.v, e.weight}});
+            mData[e.u].push_back({e.v, e.weight});
         }
     }
 
-    unordered_map<int,Entry>& operator[](int i){
+    vector<Entry>& operator[](int i){
         return mData[i];
     }
     Entry& operator()(int i, int j){
         return mData[i][j];
     }
 
-    void add_row(unordered_map<int, Entry> row){
+    void add_row(vector<Entry> row){
         mData.push_back(row);
     }
 
