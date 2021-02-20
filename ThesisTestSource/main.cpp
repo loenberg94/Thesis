@@ -9,7 +9,7 @@
 #include <omp.h>
 
 #include "ApproximationDistanceOracle/ThorupZwickGeneralADO.hpp"
-//#include "ApproximationDistanceOracle/ChechikGeneralADO.hpp"
+#include "ApproximationDistanceOracle/WulffNilsenGeneralADO.hpp"
 #include "HelperTypes/Logger.hpp"
 #include "HelperTypes/SortedDistanceMatrix.hpp"
 
@@ -165,6 +165,13 @@ void shortest_distances_2(int s, AdjecencyMatrix &graph, int v_size){
     }
 }
 
+int even_middle_index2(int i1, int i2){
+    int m = ((i2 - i1) / 2) + i1;
+    if (m % 2 == 0)
+        return m;
+    return m + 1;
+}
+
 int main() {
 
     int k = 10;
@@ -172,7 +179,6 @@ int main() {
     int e = 733846;
 
     //MinorTest();
-
     log("Loading file.");
     auto edges = read_graph_file(e);
     log("File loaded.");

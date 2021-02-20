@@ -32,6 +32,7 @@
 #include <unordered_set>
 #include <queue>
 #include <memory>
+#include <omp.h>
 
 using namespace std;
 
@@ -66,7 +67,7 @@ public:
     }
 
 protected:
-    vector<unique_ptr<HashTable2Level>> bunches;
+    vector<HashTable2Level*> bunches;
     Matrix<int> p;
     Matrix<double> d;
     int k_;
@@ -76,7 +77,8 @@ private:
 
     ThorupZwickGeneralADO(int k, int v_size):
     p(k, v_size),
-    d(k + 1, v_size){
+    d(k + 1, v_size),
+    bunches(v_size){
         k_ = k;
     }
 
@@ -125,7 +127,7 @@ private:
                     }
                 }
             }
-            bunches.push_back(std::make_unique<HashTable2Level>(b_v, b_v.size()));
+            bunches[v] = new HashTable2Level(b_v, b_v.size());
         }
     }
 
@@ -134,7 +136,7 @@ private:
         std::random_device rd;
         std::mt19937 gen (rd());
         std::uniform_real_distribution<double> dis (0,1);
-        std::list<int> a_differences[k];
+        std::vector<int> a_differences[k];
         std::unordered_set<int> A[k + 1];
 
         log("prepro - initial setup");
@@ -192,31 +194,23 @@ private:
             log("prepro - Covers - Growing tree");
             log("prepro - A[" + to_string(i) + "] - A[" + to_string(i+1) + "]: " + to_string(a_differences[i].size()));
 
-
-
-            /**std::for_each(
-                    std::execution::par_unseq,
-                    a_differences[i].begin(),
-                    a_differences[i].end(),
-                    [this, &adj, &C, i, v_size](int w){
-                        grow_shortest_dist_tree(adj, C, w, i, v_size);
-                    });**/
-            for (int w: a_differences[i]){
-                grow_shortest_dist_tree(adj, C, w, i, v_size);
+            #pragma omp parallel for num_threads(std::thread::hardware_concurrency() - 1) default(none) shared(i, v_size, C, a_differences, adj)
+            for (int w = 0; w < a_differences[i].size(); w++){
+                grow_shortest_dist_tree(adj, C, a_differences[i][w], i, v_size);
             }
             log("prepro - Covers - Tree grown");
         }
 
         log("prepro - Covers setup setup");
 
-
+        #pragma omp parallel for num_threads(std::thread::hardware_concurrency() - 1) default(none) shared(C, v_size)
         for (int v = 0; v < v_size; v++) {
             vector<HashTableEntry> temp_bunches;
             for (int w = 0; w < v_size; w++) {
                 if (C[w].contains(v))
                     temp_bunches.push_back({w, C[w][v]});
             }
-            bunches.push_back(std::make_unique<HashTable2Level>(temp_bunches, temp_bunches.size()));
+            bunches[v] = new HashTable2Level(temp_bunches, temp_bunches.size());
         }
 
         log("prepro - bunches setup");

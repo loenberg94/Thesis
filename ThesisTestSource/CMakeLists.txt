@@ -2,12 +2,9 @@ cmake_minimum_required(VERSION 3.17)
 project(ThesisTestSource)
 
 FIND_PACKAGE(OpenMP REQUIRED)
-if(OPENMP_FOUND)
-    # set(CMAKE_C_FLAGS "${OpenMP_C_FLAGS}")
-    # set(CMAKE_CXX_FLAGS "${OpenMP_C_FLAGS}")
-endif()
 
-set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+set(CMAKE_CXX_FLAGS_DEBUG "-fopenmp")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -fopenmp")
 
 set(CMAKE_CXX_STANDARD 20)
 

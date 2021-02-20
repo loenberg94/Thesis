@@ -8,25 +8,94 @@
 #include "ThorupZwickGeneralADO.hpp"
 #include <cmath>
 
-class WulffNilsenGeneralADO: public ThorupZwickGeneralADO{
+class WulffTree{
 public:
-    WulffNilsenGeneralADO(int k, int v_size, Matrix<double> distances)
-        :ThorupZwickGeneralADO(k, v_size, distances){
-    }
+    int i1, i2;
+    vector<int> maximizing_u;
+    int even_middle;
+    WulffTree* left = nullptr;
+    WulffTree* right = nullptr;
 
-    double GetDistance(int u, int v) override{
-        return bdist(u,v, 0, k_ - 1);
+    WulffTree(int i1, int i2, int n):
+    i1(i1),
+    i2(i2),
+    maximizing_u(n)
+    {
+        even_middle = even_middle_index(i1, i2);
     }
 
 private:
-    double bdist(int u, int v, int i1, int i2){
-        if ((i2 - i1) <= log(k_))
-            return dist(u, v, i1);
-        int i = even_middle_index(i1, i2);
-        int j = even_index_maximize_d(i1, i2);
+    static int even_middle_index(int i1, int i2){
+        int m = ((i2 - i1) / 2) + i1;
+        if (m % 2 == 0)
+            return m;
+        return m + 1;
+    }
+
+};
+
+class WulffNilsenGeneralADO: public ThorupZwickGeneralADO{
+public:
+    WulffNilsenGeneralADO(int k, int v_size, Matrix<double> &distances)
+        :ThorupZwickGeneralADO(k, v_size, distances){
+        root = prepro_tree(0, k - 1, v_size);
+    }
+
+    WulffNilsenGeneralADO(int k, int v_size, vector<Edge> &edges)
+            :ThorupZwickGeneralADO(k, v_size, edges){
+        root = prepro_tree(0, k, v_size);
+    }
+
+    double GetDistance(int u, int v) override{
+        return bdist(u,v, root);
+    }
+
+private:
+    WulffTree* root;
+
+    WulffTree* prepro_tree(int i1, int i2, int n){
+        if (i2 - i1 <= log(k_)){
+            auto leaf = new WulffTree(i1, i2, n);
+            for (int u = 0; u < n; u++){
+                leaf->maximizing_u[u] = i1;
+                for (int i = i1 + 1; i < i2; i++){
+                    if (i % 2 == 0){
+                        if (d(leaf->maximizing_u[u],u) < d(i, u))
+                            leaf->maximizing_u[u] = i;
+                    }
+                }
+            }
+            return leaf;
+        }
+        else{
+            auto node = new WulffTree(i1, i2, n);
+            auto left = prepro_tree(i1, node->even_middle, n);
+            auto right = prepro_tree(node->even_middle, i2, n);
+            node->left = left;
+            node->right = right;
+            if (!left->right){
+                for (int u = 0; u < n; u++)
+                    node->maximizing_u[u] = left->maximizing_u[u];
+            }
+            else{
+                for (int u = 0; u < n; u++){
+                    if (d(left->maximizing_u[u], u) > d(left->right->maximizing_u[u], u))
+                        node->maximizing_u[u] = left->maximizing_u[u];
+                    else
+                        node->maximizing_u[u] = left->right->maximizing_u[u];
+                }
+            }
+            return node;
+        }
+    }
+
+    double bdist(int u, int v, WulffTree* node){
+        if ((node->i2 - node->i1) <= log(k_))
+            return dist(u, v, node->i1);
+        int j = node->maximizing_u[u];
         if (!bunches[v]->contains(p(j, u)) && !bunches[u]->contains(p(j+1, v)))
-            return bdist(u,v,i,i2);
-        return bdist(u,v,i1,j);
+            return bdist(u,v,node->right);
+        return bdist(u,v,node->left);
     }
 
     double dist(int u, int v, int i){
@@ -39,31 +108,6 @@ private:
             w = p(j, u);
         }
         return d(w, u) + bunches[w]->operator[](v);
-    }
-
-    static int even_middle_index(int i1, int i2){
-        int m = ((i2 - i1) / 2) + i1;
-        if (m % 2 == 0)
-            return m;
-        return m + 1;
-    }
-
-    static int even_index_maximize_d(int i1, int i2){
-        return 0;
-    }
-
-    bool is_uv_terminal(int u, int v, int j){
-        if (j == k_ - 1)
-            return true;
-        return (j % 2 == 0) && (bunches[v]->contains(p(j, u)) || bunches[u]->contains(p(j + 1, v)));
-    }
-
-    bool is_uv_feasible(int u, int v, int i1, int i2){
-        if (i1 % 2 == 0)
-            return true;
-        if (d(u, p(i1, u)) <= i1 * d(u,v))
-            return true;
-        return is_uv_terminal(u,v,i2);
     }
 };
 
