@@ -93,21 +93,21 @@ private:
         if ((node->i2 - node->i1) <= log(k_))
             return dist(u, v, node->i1);
         int j = node->maximizing_u[u];
-        if (!bunches[v]->contains(p(j, u)) && !bunches[u]->contains(p(j+1, v)))
+        if (!bunches[v].contains(p(j, u)) && !bunches[u].contains(p(j+1, v)))
             return bdist(u,v,node->right);
         return bdist(u,v,node->left);
     }
 
     double dist(int u, int v, int i){
         int w = p(i, u); int j = i;
-        while (!bunches[v]->contains(w)){
+        while (!bunches[v].contains(w)){
             j++;
             int tmp = v;
             v = u;
             u = tmp;
             w = p(j, u);
         }
-        return d(w, u) + bunches[w]->operator[](v);
+        return d(w, u) + bunches[w][v];
     }
 };
 

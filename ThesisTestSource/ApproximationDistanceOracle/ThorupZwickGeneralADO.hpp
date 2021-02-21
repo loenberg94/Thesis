@@ -50,7 +50,7 @@ public:
 
     double GetDistance(int u, int v) override{
         int w = u; int i = 0;
-        while (!bunches[v]->contains(w)){
+        while (!bunches[v].contains(w)){
             i++;
             int tmp = v;
             v = u;
@@ -58,7 +58,7 @@ public:
             w = p(i, u);
         }
         double d1 = d(i, u);
-        double d2 = bunches[v]->operator[](w);
+        double d2 = bunches[v][w];
         return d1 + d2;
     }
 
@@ -67,7 +67,7 @@ public:
     }
 
 protected:
-    vector<HashTable2Level*> bunches;
+    vector<unordered_map<int, double>> bunches;
     Matrix<int> p;
     Matrix<double> d;
     int k_;
@@ -117,17 +117,15 @@ private:
         }
 
         for (int v = 0; v < v_size; v++){
-            vector<HashTableEntry> b_v;
             for (int i = 0; i < k; i++) {
                 for (int w: a_differences[i]){
                     double tmp_dist = distances(w, v);
                     if(tmp_dist < d(i + 1, v)){
-                        b_v.push_back({w, tmp_dist});
+                        bunches[v][w] = tmp_dist;
                         size++;
                     }
                 }
             }
-            bunches[v] = new HashTable2Level(b_v, b_v.size());
         }
     }
 
@@ -205,12 +203,10 @@ private:
 
         #pragma omp parallel for num_threads(std::thread::hardware_concurrency() - 1) default(none) shared(C, v_size)
         for (int v = 0; v < v_size; v++) {
-            vector<HashTableEntry> temp_bunches;
             for (int w = 0; w < v_size; w++) {
                 if (C[w].contains(v))
-                    temp_bunches.push_back({w, C[w][v]});
+                    bunches[v][w] = C[w][v];
             }
-            bunches[v] = new HashTable2Level(temp_bunches, temp_bunches.size());
         }
 
         log("prepro - bunches setup");
