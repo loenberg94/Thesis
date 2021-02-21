@@ -1,3 +1,0 @@
-/home/loenberg/Thesis/Thesis/ThesisSource/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/loenberg/Thesis/Thesis/ThesisSource/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/loenberg/Thesis/Thesis/ThesisSource/cmake-build-debug/CMakeFiles/ThesisSource.dir
