@@ -36,12 +36,18 @@ public:
 
 
     T& operator()(int i, int j){
-        assert(i < mRows);
-        assert(j < mCols);
+        if (i >= mRows)
+            throw std::invalid_argument("index i larger than rows");
+        if (j >= mCols)
+            throw std::invalid_argument("index j larger than collumns");
         return data[(i * mCols) + j];
     }
 
     T const& operator()(int i, int j)const{
+        if (i >= mRows)
+            throw std::invalid_argument("index i larger than rows");
+        if (j >= mCols)
+            throw std::invalid_argument("index j larger than collumns");
         return data[(i * mCols) + j];
     }
 

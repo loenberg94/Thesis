@@ -66,11 +66,20 @@ public:
         return size;
     }
 
+    void calculate_size(){
+        if (size == 0){
+            size = 2 * (k_ * n);
+            for (const auto& b : bunches)
+                size += b.size();
+        }
+    }
+
 protected:
     vector<unordered_map<int, double>> bunches;
     Matrix<int> p;
     Matrix<double> d;
     int k_;
+    int n;
 
 private:
     int size = 0;
@@ -78,7 +87,8 @@ private:
     ThorupZwickGeneralADO(int k, int v_size):
     p(k, v_size),
     d(k + 1, v_size),
-    bunches(v_size){
+    bunches(v_size),
+    n(v_size){
         k_ = k;
     }
 
@@ -166,17 +176,17 @@ private:
         log("prepro - A_i and differences setup");
 
         vector<unordered_map<int, double>> C(v_size);
-        Dijkstra dijkstra(v_size + 1);
+        auto dijkstra = new Dijkstra(v_size + 1);
 
         for (int i = k - 1; i >= 0; i--) {
             log("");
             log("prepro - Covers - iteration count");
             adj.add_row(build_new_row(A[i]));
 
-            dijkstra.shortest_distances_with_w(v_size, adj, A[i]);
+            dijkstra->shortest_distances_with_w(v_size, adj, A[i]);
 
-            auto d_ = dijkstra.get_d();
-            auto p_ = dijkstra.get_prev();
+            auto d_ = dijkstra->get_d();
+            auto p_ = dijkstra->get_prev();
 
             for (int v = 0; v < v_size; v++) {
                 d(i, v) = d_[v];
@@ -194,23 +204,25 @@ private:
 
             #pragma omp parallel for num_threads(std::thread::hardware_concurrency() - 1) default(none) shared(i, v_size, C, a_differences, adj)
             for (int w = 0; w < a_differences[i].size(); w++){
-                grow_shortest_dist_tree(adj, C, a_differences[i][w], i, v_size);
+                grow_shortest_dist_tree(adj, C, a_differences[i][w],i, v_size);
             }
             log("prepro - Covers - Tree grown");
         }
 
-        log("prepro - Covers setup setup");
+        delete dijkstra;
+
+        log("\nprepro - creating bunches");
 
         #pragma omp parallel for num_threads(std::thread::hardware_concurrency() - 1) default(none) shared(C, v_size)
         for (int v = 0; v < v_size; v++) {
             for (int w = 0; w < v_size; w++) {
-                if (C[w].contains(v))
+                if (C[w].contains(v)){
                     bunches[v][w] = C[w][v];
+                }
             }
         }
 
-        log("prepro - bunches setup");
-
+        log("prepro - bunches created\n");
     }
 
     vector<Entry> build_new_row(std::unordered_set<int> &A_i){
@@ -234,25 +246,18 @@ private:
         vector<double> d_temp(v_size, INFINITY);
         vector<bool> visited(v_size, false);
         d_temp[w] = 0;
-        //log("");
+
         QueueItem q = dpq.extractMin();
         while (q.v != -1){
-            //log("Node: " + to_string(q.v));
             if (!visited[q.v]){
                 auto adjecent_vertices = graph[q.v];
                 for (auto edge: adjecent_vertices){
                     if (visited[edge.v])
                         continue;
-                    //log(" - " + to_string(key));
                     double tmp_dist = d_temp[q.v] + edge.weight;
                     if (tmp_dist < d(i + 1, edge.v)){
                         d_temp[edge.v] = min(d_temp[edge.v], tmp_dist);
-                        if (C[w].contains(edge.v)){
-                            C[w][edge.v] = d_temp[edge.v];
-                        }
-                        else{
-                            C[w].insert({edge.v, d_temp[edge.v]});
-                        }
+                        C[w][edge.v] = d_temp[edge.v];
                         dpq.decreaseKey(edge.v, d_temp[edge.v]);
                     }
                 }

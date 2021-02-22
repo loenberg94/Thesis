@@ -1,7 +1,5 @@
 #include <iostream>
-#include <utility>
 #include <vector>
-#include <algorithm>
 #include <fstream>
 #include <stack>
 #include <thread>
@@ -81,16 +79,22 @@ void MinorTest(){
             {19, 17, 6},
     };
 
-    int k = 2;
+    int k = 3;
 
     ThorupZwickGeneralADO ado(k, 20, edges);
 
-    double dist1 = ado.GetDistance(0, 16);
-    double dist2 = ado.GetDistance(16, 0);
+    for (int i = 0; i < 20; i++) {
+        for (int j = 0; j < 20; j++) {
+            try{
+                ado.GetDistance(i,j);
+            }
+            catch (std::invalid_argument& s){
+                log(to_string(i) + "," + to_string(j));
+            }
+        }
+    }
 
     cout << "All done!!!!" << endl;
-    cout << dist1 << endl;
-    cout << dist2 << endl;
     cout << "" << endl;
 }
 
@@ -114,75 +118,136 @@ vector<Edge> read_graph_file(int size){
 
     return edges;
 }
-struct t_arg{
-    int size;
-    AdjecencyMatrix graph;
-    int beginning, end;
-};
 
-class section_container{
-public:
-    int size;
-    AdjecencyMatrix graph;
-    int beginning;
-    int end;
-
-    section_container(AdjecencyMatrix graph, int b, int e) :
-    graph(graph),
-    size(graph.length()),
-    beginning(b),
-    end(e){
-
-    }
-};
-
-void shortest_distances_2(int s, AdjecencyMatrix &graph, int v_size){
-    MinHeap dpq (v_size);
-    dpq.insertKey(s, 0);
-    for (int j = 0; j < v_size; j++) {
-        if (j != s)
-            dpq.insertKey(j, INFINITY);
-    }
-
-    vector<double> d_temp(v_size, INFINITY);
-    d_temp[s] = 0;
-    vector<bool> visited_vertices(v_size);
-
-    QueueItem q = dpq.extractMin();
-    while (q.v != -1){
-        if (!visited_vertices[q.v]){
-            auto adjecent_vertices = graph[q.v];
-            for (auto edge: adjecent_vertices){
-                double tmp_dist = d_temp[q.v] + edge.weight;
-                if (tmp_dist < d_temp[edge.v]){
-                    d_temp[edge.v] = tmp_dist;
-                    dpq.decreaseKey(edge.v, d_temp[edge.v]);
-                }
-            }
-            visited_vertices[q.v] = true;
-        }
-        q = dpq.extractMin();
-    }
+unsigned int get_miliseconds(std::chrono::time_point<std::chrono::system_clock> t1, std::chrono::time_point<std::chrono::system_clock> t2){
+    return std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1).count();
 }
 
-int even_middle_index2(int i1, int i2){
-    int m = ((i2 - i1) / 2) + i1;
-    if (m % 2 == 0)
-        return m;
-    return m + 1;
+unsigned int get_microseconds(std::chrono::time_point<std::chrono::system_clock> t1, std::chrono::time_point<std::chrono::system_clock> t2){
+    return std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
+}
+
+unsigned int get_nanoseconds(std::chrono::time_point<std::chrono::system_clock> t1, std::chrono::time_point<std::chrono::system_clock> t2){
+    return std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count();
+}
+
+vector<int> build_ys(int size, int max, vector<int> &xs){
+    unordered_set<int> illigal_indeces;
+    for (auto x : xs)
+        illigal_indeces.insert(x);
+
+    std::random_device rd;
+    std::mt19937 gen (rd());
+    std::uniform_int_distribution<int> dis (0, max - 1);
+    vector<int> ys(size);
+    for (int i = 0; i < size; i++) {
+        ys[i] = dis(gen);
+        if (illigal_indeces.contains(ys[i]))
+            i--;
+    }
+    return ys;
+}
+
+struct result{
+    double expected, actual;
+    double time;
+};
+
+struct section{
+    AdjecencyMatrix &graph;
+    int start, end, size;
+};
+
+void run_section(section s){
+    for (int i = s.start; i < s.end; i++) {
+        shortest_distances(i, s.graph, s.size);
+        log(to_string(i));
+    }
 }
 
 int main() {
+    int cont;
 
-    int k = 10;
+    string out_file = "real_world_";
+    int k = 2;
     int n = 264346;
     int e = 733846;
 
     //MinorTest();
+
+    //return 0;
+
     log("Loading file.");
     auto edges = read_graph_file(e);
     log("File loaded.");
+
+    /**
+    AdjecencyMatrix graph1(n,edges);
+
+    thread pt1(run_section, section{graph1, 0, 1000, n});
+    thread pt2(run_section, section{graph1, 1000, 2000, n});
+    thread pt3(run_section, section{graph1, 2000, 3000, n});
+    thread pt4(run_section, section{graph1, 3000, 4000, n});
+    thread pt5(run_section, section{graph1, 4000, 5000, n});
+
+    pt1.join();
+    pt2.join();
+    pt3.join();
+    pt4.join();
+    pt5.join();
+
+    return 0;**/
+
+    auto t1 = chrono::high_resolution_clock::now();
     ThorupZwickGeneralADO ado(k, n, edges);
+    auto t2 = chrono::high_resolution_clock::now();
+
+    auto prepro_time = get_miliseconds(t1, t2);
+
+    cin >> cont;
+    ado.calculate_size();
+
+    int size = ado.GetSize();
+
+    log("\n\nResults:");
+    log("preprocessing time: " + to_string(prepro_time) + "ms");
+    log("size in n: " + to_string(size));
+
+    int z = 20.0;
+    int y_size = 40;
+    vector<int> xs = {235725, 136521, 212727, 260649, 51984, 160358, 121788, 83423, 226130, 129519};
+    vector<int> ys = build_ys(y_size, n, xs);
+
+    vector<vector<double>> exact_distances(xs.size());
+    vector<result> query_results;
+
+    AdjecencyMatrix graph(n,edges);
+    for (int i = 0; i < xs.size(); i++) {
+        exact_distances[i] = shortest_distances(xs[i], graph, n);
+    }
+
+    int t = 0;
+    for (auto x : xs){
+        for (auto y: ys){
+            double time = 0;
+            double dist = 0;
+            for (int i = 0; i < z; i++) {
+                auto t_start = chrono::high_resolution_clock::now();
+                auto r = ado.GetDistance(x, y);
+                auto t_end = chrono::high_resolution_clock::now();
+                time += get_nanoseconds(t_start, t_end);
+                if (i == 0)
+                    dist = r;
+            }
+            query_results.push_back({exact_distances[t][y], dist, time/z});
+        }
+        t++;
+    }
+
+    ofstream result_file(out_file + to_string(k) + ".txt");
+    for (auto r : query_results)
+        result_file << to_string(r.expected) + "," + to_string(r.actual) + "," + to_string(r.time) << endl;
+    result_file.close();
 
     return 0;
 }

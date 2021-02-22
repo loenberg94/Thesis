@@ -3,7 +3,7 @@ project(ThesisTestSource)
 
 FIND_PACKAGE(OpenMP REQUIRED)
 
-set(CMAKE_CXX_FLAGS_DEBUG "-fopenmp")
+set(CMAKE_CXX_FLAGS_DEBUG "-g -fopenmp")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3 -fopenmp")
 
 set(CMAKE_CXX_STANDARD 20)
