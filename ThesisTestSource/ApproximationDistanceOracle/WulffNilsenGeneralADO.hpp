@@ -43,7 +43,7 @@ public:
 
     WulffNilsenGeneralADO(int k, int v_size, vector<Edge> &edges)
             :ThorupZwickGeneralADO(k, v_size, edges){
-        root = prepro_tree(0, k, v_size);
+        root = prepro_tree(0, k - 1, v_size);
     }
 
     double GetDistance(int u, int v) override{
@@ -54,7 +54,8 @@ private:
     WulffTree* root;
 
     WulffTree* prepro_tree(int i1, int i2, int n){
-        if (i2 - i1 <= log(k_)){
+        double t = log2(k_);
+        if (i2 - i1 <= t){
             auto leaf = new WulffTree(i1, i2, n);
             for (int u = 0; u < n; u++){
                 leaf->maximizing_u[u] = i1;
@@ -90,7 +91,7 @@ private:
     }
 
     double bdist(int u, int v, WulffTree* node){
-        if ((node->i2 - node->i1) <= log(k_))
+        if ((node->i2 - node->i1) <= log2(k_))
             return dist(u, v, node->i1);
         int j = node->maximizing_u[u];
         if (!bunches[v].contains(p(j, u)) && !bunches[u].contains(p(j+1, v)))
@@ -107,7 +108,7 @@ private:
             u = tmp;
             w = p(j, u);
         }
-        return d(w, u) + bunches[w][v];
+        return d(j, u) + bunches[w][v];
     }
 };
 

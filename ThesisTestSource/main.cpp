@@ -79,9 +79,9 @@ void MinorTest(){
             {19, 17, 6},
     };
 
-    int k = 3;
+    int k = 2;
 
-    ThorupZwickGeneralADO ado(k, 20, edges);
+    WulffNilsenGeneralADO ado(k, 20, edges);
 
     for (int i = 0; i < 20; i++) {
         for (int j = 0; j < 20; j++) {
@@ -108,6 +108,29 @@ vector<Edge> read_graph_file(int size){
     if (file.is_open()){
         while (file >> a >> u >> v >> weight){
             edges[i] = {u - 1, v - 1, weight};
+            i++;
+        }
+        file.close();
+    }
+    else{
+        throw "File not opened!";
+    }
+
+    return edges;
+}
+
+vector<Edge> read_generated_graph_file(string &file_name, int size){
+    vector<Edge> edges(size*2);
+    int i = 0;
+
+    int u,v; double weight;
+    char a;
+    ifstream file(file_name);
+    if (file.is_open()){
+        while (file >> a >> u >> v >> weight){
+            edges[i] = {u, v, weight};
+            i++;
+            edges[i] = {v, u, weight};
             i++;
         }
         file.close();
@@ -173,9 +196,9 @@ int main() {
     int n = 264346;
     int e = 733846;
 
-    //MinorTest();
+    MinorTest();
 
-    //return 0;
+    return 0;
 
     log("Loading file.");
     auto edges = read_graph_file(e);
