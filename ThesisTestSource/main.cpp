@@ -191,38 +191,22 @@ void run_section(section s){
 int main() {
     int cont;
 
-    string out_file = "real_world_";
-    int k = 2;
+    const string oracle = "wulff_";
+    const string out_file = "real_world_";
+    int k = 18;
     int n = 264346;
     int e = 733846;
 
-    MinorTest();
+    //MinorTest();
 
-    return 0;
+    //return 0;
 
     log("Loading file.");
     auto edges = read_graph_file(e);
     log("File loaded.");
 
-    /**
-    AdjecencyMatrix graph1(n,edges);
-
-    thread pt1(run_section, section{graph1, 0, 1000, n});
-    thread pt2(run_section, section{graph1, 1000, 2000, n});
-    thread pt3(run_section, section{graph1, 2000, 3000, n});
-    thread pt4(run_section, section{graph1, 3000, 4000, n});
-    thread pt5(run_section, section{graph1, 4000, 5000, n});
-
-    pt1.join();
-    pt2.join();
-    pt3.join();
-    pt4.join();
-    pt5.join();
-
-    return 0;**/
-
     auto t1 = chrono::high_resolution_clock::now();
-    ThorupZwickGeneralADO ado(k, n, edges);
+    WulffNilsenGeneralADO ado(k, n, edges);
     auto t2 = chrono::high_resolution_clock::now();
 
     auto prepro_time = get_miliseconds(t1, t2);
@@ -237,7 +221,7 @@ int main() {
     log("size in n: " + to_string(size));
 
     int z = 20.0;
-    int y_size = 40;
+    int y_size = 100;
     vector<int> xs = {235725, 136521, 212727, 260649, 51984, 160358, 121788, 83423, 226130, 129519};
     vector<int> ys = build_ys(y_size, n, xs);
 
@@ -267,7 +251,7 @@ int main() {
         t++;
     }
 
-    ofstream result_file(out_file + to_string(k) + ".txt");
+    ofstream result_file(oracle + out_file + to_string(k) + ".txt");
     for (auto r : query_results)
         result_file << to_string(r.expected) + "," + to_string(r.actual) + "," + to_string(r.time) << endl;
     result_file.close();

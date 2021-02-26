@@ -54,7 +54,7 @@ private:
     WulffTree* root;
 
     WulffTree* prepro_tree(int i1, int i2, int n){
-        double t = log2(k_);
+        double t = ceil(log2(k_));
         if (i2 - i1 <= t){
             auto leaf = new WulffTree(i1, i2, n);
             for (int u = 0; u < n; u++){
@@ -91,7 +91,7 @@ private:
     }
 
     double bdist(int u, int v, WulffTree* node){
-        if ((node->i2 - node->i1) <= log2(k_))
+        if ((node->i2 - node->i1) <= ceil(log2(k_)))
             return dist(u, v, node->i1);
         int j = node->maximizing_u[u];
         if (!bunches[v].contains(p(j, u)) && !bunches[u].contains(p(j+1, v)))
@@ -108,7 +108,7 @@ private:
             u = tmp;
             w = p(j, u);
         }
-        return d(j, u) + bunches[w][v];
+        return d(j, u) + bunches[v][w];
     }
 };
 
