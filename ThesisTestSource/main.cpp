@@ -119,12 +119,12 @@ vector<Edge> read_graph_file(int size){
     return edges;
 }
 
-vector<Edge> read_generated_graph_file(int size){
+vector<Edge> read_generated_graph_file(const string& file_name, int size){
     vector<Edge> edges(size*2);
     int i = 0;
 
     int u,v; double weight;
-    ifstream file("../complete_graph");
+    ifstream file(file_name);
     if (file.is_open()){
         while (file >> u >> v >> weight){
             edges[i] = {u, v, weight};
@@ -171,7 +171,7 @@ vector<int> build_ys(int size, int max, vector<int> &xs){
 }
 
 struct result{
-    double expected, actual;
+    double stretch;
     double time;
 };
 
@@ -187,31 +187,101 @@ void run_section(section s){
     }
 }
 
-int main() {
-    int cont;
-
-    const string oracle = "thorup_";
-    const string out_file = "complete_";
-    int k = 18;
+void density_test(){
+    const string oracle = "wulff_";
     int n = 1000;
-    int e = 499500;
 
-    //MinorTest();
+    auto k_values = {2, 3, 5, 8, 10, 13};
+    vector<int> sizes = {499500, 375000, 250000, 125000, 1500};
+    vector<string> file_names = {
+            "complete_graph",
+            "dense_graph",
+            "semi_dense_graph",
+            "sparse_graph",
+            "very_sparse_graph"
+    };
 
-    //return 0;
+    int k = 13;
+
+    //for (auto k: k_values){
+        for (int i = 0; i < 5; i++) {
+
+            log("Loading file.");
+            auto edges = read_generated_graph_file("../" + file_names[i], sizes[i]);
+            log("File loaded.");
+
+            auto t1 = chrono::high_resolution_clock::now();
+            WulffNilsenGeneralADO ado(k, n, edges);
+            auto t2 = chrono::high_resolution_clock::now();
+
+            auto prepro_time = get_miliseconds(t1, t2);
+
+            ado.calculate_size();
+
+            int size = ado.GetSize();
+
+            log("\n\nResults:");
+            log("preprocessing time: " + to_string(prepro_time) + "ms");
+            log("size in n: " + to_string(size));
+
+            int z = 20.0;
+            int y_size = 100;
+            vector<int> xs = {318, 331, 417, 634, 516, 497, 896, 126, 672, 151};
+            vector<int> ys = build_ys(y_size, n, xs);
+
+            vector<vector<double>> exact_distances(xs.size());
+            vector<result> query_results;
+
+            AdjecencyMatrix graph(n,edges);
+            for (int i = 0; i < xs.size(); i++) {
+                exact_distances[i] = shortest_distances(xs[i], graph, n);
+            }
+
+            int t = 0;
+            for (auto x : xs){
+                for (auto y: ys){
+                    double time = 0;
+                    double dist = 0;
+                    for (int i = 0; i < z; i++) {
+                        auto t_start = chrono::high_resolution_clock::now();
+                        auto r = ado.GetDistance(x, y);
+                        auto t_end = chrono::high_resolution_clock::now();
+                        time += get_nanoseconds(t_start, t_end);
+                        if (i == 0)
+                            dist = r;
+                    }
+                    query_results.push_back({dist/exact_distances[t][y], time/z});
+                }
+                t++;
+            }
+
+            ofstream result_file(oracle + file_names[i] + "_" + to_string(k) + ".txt");
+            for (auto r : query_results)
+                result_file << to_string(r.stretch) + "," + to_string(r.time) << "," << k << "\n";
+            result_file.close();
+
+        }
+    //}
+}
+
+void real_world_test(){
+    const string oracle = "wulff_";
+    const string out_file = "real_world_";
+    int k = 18;
+    int n = 264346;
+    int e = 733846;
+
 
     log("Loading file.");
-    //auto edges = read_graph_file(e);
-    auto edges = read_generated_graph_file(e);
+    auto edges = read_graph_file(e);
     log("File loaded.");
 
     auto t1 = chrono::high_resolution_clock::now();
-    ThorupZwickGeneralADO ado(k, n, edges);
+    WulffNilsenGeneralADO ado(k, n, edges);
     auto t2 = chrono::high_resolution_clock::now();
 
     auto prepro_time = get_miliseconds(t1, t2);
 
-    cin >> cont;
     ado.calculate_size();
 
     int size = ado.GetSize();
@@ -221,8 +291,8 @@ int main() {
     log("size in n: " + to_string(size));
 
     int z = 20.0;
-    int y_size = 100;
-    vector<int> xs = {318, 331, 417, 634, 516, 497, 896, 126, 672, 151};
+    int y_size = 1000;
+    vector<int> xs = {235725, 136521, 212727, 260649, 51984, 160358, 121788, 83423, 226130, 129519};
     vector<int> ys = build_ys(y_size, n, xs);
 
     vector<vector<double>> exact_distances(xs.size());
@@ -246,15 +316,21 @@ int main() {
                 if (i == 0)
                     dist = r;
             }
-            query_results.push_back({exact_distances[t][y], dist, time/z});
+            query_results.push_back({dist/exact_distances[t][y], time/z});
         }
         t++;
     }
 
     ofstream result_file(oracle + out_file + to_string(k) + ".txt");
     for (auto r : query_results)
-        result_file << to_string(r.expected) + "," + to_string(r.actual) + "," + to_string(r.time) << endl;
+        result_file << to_string(r.stretch) + "," + to_string(r.time) << "," << k << "\n";
     result_file.close();
+}
+
+int main() {
+
+    //density_test();
+    real_world_test();
 
     return 0;
 }
