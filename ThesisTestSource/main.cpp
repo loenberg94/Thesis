@@ -119,15 +119,14 @@ vector<Edge> read_graph_file(int size){
     return edges;
 }
 
-vector<Edge> read_generated_graph_file(string &file_name, int size){
+vector<Edge> read_generated_graph_file(int size){
     vector<Edge> edges(size*2);
     int i = 0;
 
     int u,v; double weight;
-    char a;
-    ifstream file(file_name);
+    ifstream file("../complete_graph");
     if (file.is_open()){
-        while (file >> a >> u >> v >> weight){
+        while (file >> u >> v >> weight){
             edges[i] = {u, v, weight};
             i++;
             edges[i] = {v, u, weight};
@@ -191,22 +190,23 @@ void run_section(section s){
 int main() {
     int cont;
 
-    const string oracle = "wulff_";
-    const string out_file = "real_world_";
+    const string oracle = "thorup_";
+    const string out_file = "complete_";
     int k = 18;
-    int n = 264346;
-    int e = 733846;
+    int n = 1000;
+    int e = 499500;
 
     //MinorTest();
 
     //return 0;
 
     log("Loading file.");
-    auto edges = read_graph_file(e);
+    //auto edges = read_graph_file(e);
+    auto edges = read_generated_graph_file(e);
     log("File loaded.");
 
     auto t1 = chrono::high_resolution_clock::now();
-    WulffNilsenGeneralADO ado(k, n, edges);
+    ThorupZwickGeneralADO ado(k, n, edges);
     auto t2 = chrono::high_resolution_clock::now();
 
     auto prepro_time = get_miliseconds(t1, t2);
@@ -222,7 +222,7 @@ int main() {
 
     int z = 20.0;
     int y_size = 100;
-    vector<int> xs = {235725, 136521, 212727, 260649, 51984, 160358, 121788, 83423, 226130, 129519};
+    vector<int> xs = {318, 331, 417, 634, 516, 497, 896, 126, 672, 151};
     vector<int> ys = build_ys(y_size, n, xs);
 
     vector<vector<double>> exact_distances(xs.size());
