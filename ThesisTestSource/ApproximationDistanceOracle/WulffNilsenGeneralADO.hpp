@@ -53,15 +53,19 @@ public:
 private:
     WulffTree* root;
 
+    double delta(int i, int u){
+        return d(i + 2, u) - d(i, u);
+    }
+
     WulffTree* prepro_tree(int i1, int i2, int n){
         double t = ceil(log2(k_));
         if (i2 - i1 <= t){
             auto leaf = new WulffTree(i1, i2, n);
             for (int u = 0; u < n; u++){
                 leaf->maximizing_u[u] = i1;
-                for (int i = i1 + 1; i < i2; i++){
+                for (int i = i1 + 1; i <= i2 - 2; i++){
                     if (i % 2 == 0){
-                        if (d(leaf->maximizing_u[u],u) < d(i, u))
+                        if (delta(leaf->maximizing_u[u], u) < delta(i, u))
                             leaf->maximizing_u[u] = i;
                     }
                 }
@@ -80,7 +84,7 @@ private:
             }
             else{
                 for (int u = 0; u < n; u++){
-                    if (d(left->maximizing_u[u], u) > d(left->right->maximizing_u[u], u))
+                    if (delta(left->maximizing_u[u], u) > delta(left->right->maximizing_u[u], u))
                         node->maximizing_u[u] = left->maximizing_u[u];
                     else
                         node->maximizing_u[u] = left->right->maximizing_u[u];

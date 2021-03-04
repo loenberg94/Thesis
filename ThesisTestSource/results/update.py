@@ -1,22 +1,40 @@
 from numpy import genfromtxt
 import numpy as np
 
-k_values = [3, 5, 8, 13]
+oracles = [
+    "thorup",
+    "wulff"
+]
 
-data = genfromtxt('thorup_complete_2.txt', delimiter=',')
-r, c = data.shape
+files = {
+    "complete_graph",
+    "super_dense_graph",
+    "very_dense_graph",
+    "dense_graph",
+    "semi_dense_graph",
+    "sparse_graph",
+    "very_sparse_graph"
+}
 
-n = np.zeros((r, c + 1))
-n[:,c] = 2
-n[:,:-1] = data 
+k_values = [
+    3, 
+    5, 
+    8, 
+    10, 
+    13, 
+    #15, 
+    #18
+    ]
 
-n.
+for oracle in oracles:
+    for graph in files:
+        data = genfromtxt(f'{oracle}_{graph}_2.txt', delimiter=',')
+        r, c = data.shape
 
-for k in k_values:
-    data = genfromtxt(f'thorup_complete_{k}.txt', delimiter=',')
-    t = np.zeros((r, c + 1))
-    t[:,c] = k
-    t[:,:-1] = data 
-    n = np.vstack((n, t))
+        n = data
 
-np.savetxt('thorup_complete_collected.csv', n, delimiter=',')
+        for k in k_values:
+            data = genfromtxt(f'{oracle}_{graph}_{k}.txt', delimiter=',')
+            n = np.vstack((n, data))
+
+        np.savetxt(f'{oracle}_{graph}_collected.csv', n, delimiter=',')
