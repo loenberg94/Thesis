@@ -102,10 +102,10 @@ const string complete = "complete_graph";
 const int complete_size = 499500;
 
 const string super_dense = "super_dense_graph";
-const int super_dense_size = 469879;
+const int super_dense_size = 445029;
 
 const string very_dense = "very_dense_graph";
-const int very_dense_size = 445029;
+const int very_dense_size = 420434;
 
 const string dense = "dense_graph";
 const int dense_size = 378036;
