@@ -318,22 +318,22 @@ void density_test_wulff(){
 void density_test_thorup(){
 
     vector<string> files = {
-            complete,
-            super_dense,
-            very_dense,
-            dense,
-            semi_dense,
-            sparse,
+            //complete,
+            //super_dense,
+            //very_dense,
+            //dense,
+            //semi_dense,
+            //sparse,
             very_sparse
     };
 
     vector<int> sizes ={
-            complete_size,
-            super_dense_size,
-            very_dense_size,
-            dense_size,
-            semi_dense_size,
-            sparse_size,
+            //complete_size,
+            //super_dense_size,
+            //very_dense_size,
+            //dense_size,
+            //semi_dense_size,
+            //sparse_size,
             very_sparse_size
     };
 
@@ -426,7 +426,7 @@ void real_world_test(){
     int e = 733846;
 
     vector<int> k_values = {
-            //2,
+            2,
             3,
             5,
             8,
@@ -501,14 +501,14 @@ void real_world_test(){
 int main() {
 
     //MinorTest();
-    for (int i = 0; i < 10; i++) {
-        density_test_wulff();
-        density_test_thorup();
-    }
-    //for (int i = 0; i < 3; ++i) {
-    //    log("\n Iteration:" + to_string(i) + "\n");
-    //    real_world_test();
+    //for (int i = 0; i < 1; i++) {
+        //density_test_wulff();
+        //density_test_thorup();
     //}
+    for (int i = 0; i < 6; ++i) {
+        log("\n Iteration:" + to_string(i) + "\n");
+        real_world_test();
+    }
 
     return 0;
 }

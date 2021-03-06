@@ -2,18 +2,19 @@ from numpy import genfromtxt
 import numpy as np
 
 oracles = [
-    "thorup",
+    #"thorup",
     "wulff"
 ]
 
 files = {
-    "complete_graph",
-    "super_dense_graph",
-    "very_dense_graph",
-    "dense_graph",
-    "semi_dense_graph",
-    "sparse_graph",
-    "very_sparse_graph"
+    #"complete_graph",
+    #"super_dense_graph",
+    #"very_dense_graph",
+    #"dense_graph",
+    #"semi_dense_graph",
+    #"sparse_graph",
+    #"very_sparse_graph",
+    "real_world"
 }
 
 k_values = [
@@ -22,8 +23,8 @@ k_values = [
     8, 
     10, 
     13, 
-    #15, 
-    #18
+    15, 
+    18
     ]
 
 for oracle in oracles:
